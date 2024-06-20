@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseClassLibrary", "DataBaseClassLibrary\DataBaseClassLibrary.csproj", "{3566F060-0B4D-48CC-B613-93F2AECA6CFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdmissionCommitteeWPF", "AdmissionCommitteeWPF\AdmissionCommitteeWPF.csproj", "{8B8B4953-C234-4562-9B77-D2272D33E909}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleWPF", "ScheduleWPF\ScheduleWPF.csproj", "{737260F7-2FC1-484F-AA82-616CD05D5047}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3566F060-0B4D-48CC-B613-93F2AECA6CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3566F060-0B4D-48CC-B613-93F2AECA6CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3566F060-0B4D-48CC-B613-93F2AECA6CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3566F060-0B4D-48CC-B613-93F2AECA6CFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B8B4953-C234-4562-9B77-D2272D33E909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B8B4953-C234-4562-9B77-D2272D33E909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B8B4953-C234-4562-9B77-D2272D33E909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B8B4953-C234-4562-9B77-D2272D33E909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737260F7-2FC1-484F-AA82-616CD05D5047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737260F7-2FC1-484F-AA82-616CD05D5047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737260F7-2FC1-484F-AA82-616CD05D5047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737260F7-2FC1-484F-AA82-616CD05D5047}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
