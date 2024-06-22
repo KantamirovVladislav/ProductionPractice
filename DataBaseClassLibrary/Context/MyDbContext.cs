@@ -7,13 +7,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataBaseClassLibrary.Context;
 
-public partial class MyDbContext : DbContext
+/// <summary>
+/// Class for creating dataBase context. Class is abstract and if you want to create a context - use OpenConnectionDataBase class
+/// </summary>
+public abstract partial class MyDbContext : DbContext
 {
-    public MyDbContext()
+    protected MyDbContext()
     {
     }
 
-    public MyDbContext(DbContextOptions<MyDbContext> options)
+    protected MyDbContext(DbContextOptions<MyDbContext> options)
         : base(options)
     {
     }
@@ -57,7 +60,6 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<TypeFinancing> TypeFinancings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=0201");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
