@@ -139,7 +139,20 @@ public class ExecuteCommandDataBase
         }
         await _db.SaveChangesAsync();
     }
-    
+
+    public static async Task SaveAddWithState(ObservableCollection<object> entities)
+    {
+        foreach (var item in entities)
+        {
+            if (_db.Entry(item).State == EntityState.Detached)
+            {
+                _db.Entry(item).State = EntityState.Added;
+            }
+        }
+        await _db.SaveChangesAsync();
+    }
+
+
     public static async Task DeleteRangeEntityAsync(ObservableCollection<object> entities)
     {
         foreach (var entity in entities)
@@ -148,7 +161,20 @@ public class ExecuteCommandDataBase
         }
         await _db.SaveChangesAsync();
     }
-    
+
+    public static async Task SaveDeleteWithState(ObservableCollection<object> entities)
+    {
+        foreach (var item in entities)
+        {
+            var entry = _db.Entry(item);
+            if (entry.State != EntityState.Detached)
+            {
+                entry.State = EntityState.Deleted;
+            }
+        }
+        await _db.SaveChangesAsync();
+    }
+
     public static async Task AddEntityAsync(object entity)
     {
         await _db.AddAsync(entity);

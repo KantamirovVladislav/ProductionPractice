@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:model="clr-namespace:AdmissionCommitteeWPF.Models"
         xmlns:vm="clr-namespace:AdmissionCommitteeWPF.ViewModel"
         xmlns:local="clr-namespace:AdmissionCommitteeWPF"
         mc:Ignorable="d"
@@ -10,7 +12,41 @@
     <Window.DataContext>
         <vm:MainWindowVM></vm:MainWindowVM>
     </Window.DataContext>
-    <Grid>
-        <DataGrid ItemsSource="{Binding Applicants}"></DataGrid>
+    <Grid Background="{DynamicResource MaterialDesignCardBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListBox
+            Grid.Row="1"
+            Height="80"
+            ItemsSource="{Binding _NavigationItems}"
+            SelectedIndex="0"
+            Style="{StaticResource MaterialDesign3.NavigationBarListBox}">
+            <ListBox.ItemContainerStyle>
+                <Style
+                    TargetType="ListBoxItem"
+                    BasedOn="{StaticResource MaterialDesign3.NavigationBarListBoxItem}">
+                    <Setter
+                        Property="materialDesign:NavigationBarAssist.IsTextVisible"
+                        Value="True" />
+                    <Setter
+                        Property="materialDesign:NavigationBarAssist.SelectedIcon"
+                        Value="{Binding SelectedIcon}" />
+                    <Setter
+                        Property="materialDesign:NavigationBarAssist.UnselectedIcon"
+                        Value="{Binding UnselectedIcon}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.Resources>
+                <DataTemplate
+                    DataType="{x:Type model:NavigationItems}">
+                    <TextBlock
+                        Text="{Binding Title}" />
+                </DataTemplate>
+            </ListBox.Resources>
+        </ListBox>
+        
+        <Frame Grid.Row="0" Content="{Binding CurrentPage}"></Frame>
     </Grid>
 </Window>
