@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataBaseClassLibrary.Entities.Schedules;
+namespace DataBaseClassLibrary.Entities;
 
 public partial class Subject
 {

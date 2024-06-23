@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataBaseClassLibrary.Entities.Comission;
+namespace DataBaseClassLibrary.Entities;
 
 public partial class DocumentData
 {
@@ -15,5 +15,5 @@ public partial class DocumentData
 
     public virtual DocumentsImage Document { get; set; } = null!;
 
-    public virtual DocumentKey DocumentKey { get; set; } = null!;
+    public virtual Keysfordocument DocumentKey { get; set; } = null!;
 }

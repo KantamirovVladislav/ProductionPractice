@@ -1,6 +1,7 @@
-﻿using DataBaseClassLibrary.Entities.PersonalData;
+﻿using System;
+using System.Collections.Generic;
 
-namespace DataBaseClassLibrary.Entities.Comission;
+namespace DataBaseClassLibrary.Entities;
 
 public partial class Applicant
 {
@@ -22,11 +23,13 @@ public partial class Applicant
 
     public decimal? AverageScore { get; set; }
 
-    public string? Status { get; set; }
+    public int? Status { get; set; }
 
     public virtual ICollection<DocumentsImage> DocumentsImages { get; set; } = new List<DocumentsImage>();
 
     public virtual ICollection<FormsEducationSpecializationApplicant> FormsEducationSpecializationApplicants { get; set; } = new List<FormsEducationSpecializationApplicant>();
 
-    public virtual ICollection<PersonalAccountData> PersonalAccountData { get; set; } = new List<PersonalAccountData>();
+    public virtual ICollection<PersonalAccountdata> PersonalAccountData { get; set; } = new List<PersonalAccountdata>();
+
+    public virtual Status? StatusNavigation { get; set; }
 }

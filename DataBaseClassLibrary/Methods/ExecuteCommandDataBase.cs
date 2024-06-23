@@ -1,13 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Runtime.InteropServices.ComTypes;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks.Dataflow;
 using DataBaseClassLibrary.Context;
+using DataBaseClassLibrary.Entities;
 using DataBaseClassLibrary.Entities.Comission;
-using DataBaseClassLibrary.Entities.PersonalData;
-using DataBaseClassLibrary.Entities.Schedules;
 using Microsoft.EntityFrameworkCore;
-using Group = DataBaseClassLibrary.Entities.Schedules.Group;
+using Group = DataBaseClassLibrary.Entities.Group;
 
 namespace DataBaseClassLibrary.Methods;
 
@@ -24,13 +22,18 @@ public class ExecuteCommandDataBase
 
     public static async Task<List<DocumentData>> GetDocumentData()
     {
-        return await _db.DocumentsData.ToListAsync();
+        return await _db.Documentdata.ToListAsync();
     }
     
-    public static async Task<List<DocumentKey>> GetDocumentKeys()
+    public static async Task<List<Keysfordocument>> GetKeysForDocuments()
     {
-        return await _db.DocumentKeys.ToListAsync();
+        return await _db.Keysfordocuments.ToListAsync();
     }
+    
+    // public static async Task<List<Keysfordocument>> GetKeysForDocuments()
+    // {
+    //     return await _db.Keysfordocuments.ToListAsync();
+    // }
     
     public static async Task<List<DocumentsImage>> GetDocumentsImages()
     {
@@ -57,11 +60,6 @@ public class ExecuteCommandDataBase
         return await _db.FormsSpecializations.ToListAsync();
     }
     
-    public static async Task<List<KeysForDocument>> GetKeysForDocuments()
-    {
-        return await _db.KeysForDocuments.ToListAsync();
-    }
-    
     public static async Task<List<Specialization>> GetSpecializations()
     {
         return await _db.Specializations.ToListAsync();
@@ -71,13 +69,39 @@ public class ExecuteCommandDataBase
     {
         return await _db.TypeFinancings.ToListAsync();
     }
+    
+    public static async Task<List<Status>> GetStatuses()
+    {
+        return await _db.Statuses.ToListAsync();
+    }
+    
+    public static async Task<List<Educationbase>> GetEducationBases()
+    {
+        return await _db.Educationbases.ToListAsync();
+    }
+    
+    public static async Task<List<Applicantsdocumentimage>> GetApplicantsDocumentImages()
+    {
+        return await _db.Applicantsdocumentimages.ToListAsync();
+    }
+    
+    public static async Task<List<Applicantsandeducation>> GetApplicantsAndEducations()
+    {
+        return await _db.Applicantsandeducations.ToListAsync();
+    }
+
+    public static async Task<List<ApplicantsAndDocumentsData>> GetApplicantsAndDocumentsData()
+    {
+        return await _db.Applicantsanddocumentsdata.ToListAsync();
+    }
+
     #endregion
 
     #region PersonalData
     
-    public static async Task<List<PersonalAccountData>> GetPersonalAccountsData()
+    public static async Task<List<PersonalAccountdata>> GetPersonalAccountsData()
     {
-        return await _db.PersonalAccountsData.ToListAsync();
+        return await _db.PersonalAccountData.ToListAsync();
     }
     #endregion
 
