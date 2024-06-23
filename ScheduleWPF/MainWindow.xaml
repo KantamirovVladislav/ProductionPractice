@@ -11,14 +11,8 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         Background="{DynamicResource MaterialDesignPaper}"
-        Title="MainWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <Style TargetType="ListBoxItem">
-            <Setter Property="FontFamily" Value="Segoe UI"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Padding" Value="4"/>
-        </Style>
-    </Window.Resources>
+        Title="MainWindow" Height="700" Width="1100" WindowStartupLocation="CenterScreen">
+
     <Grid>
         <!-- Menu Bar -->
         <Menu VerticalAlignment="Top" Margin="0,0,0,10">
