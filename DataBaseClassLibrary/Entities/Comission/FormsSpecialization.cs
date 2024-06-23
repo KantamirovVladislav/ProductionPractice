@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataBaseClassLibrary.Entities.Comission;
+namespace DataBaseClassLibrary.Entities;
 
 public partial class FormsSpecialization
 {

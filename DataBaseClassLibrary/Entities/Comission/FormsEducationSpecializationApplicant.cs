@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using DataBaseClassLibrary.Entities.Comission;
 
-namespace DataBaseClassLibrary.Entities.Comission;
+namespace DataBaseClassLibrary.Entities;
 
 public partial class FormsEducationSpecializationApplicant
 {
@@ -10,9 +9,11 @@ public partial class FormsEducationSpecializationApplicant
 
     public int FormsEducationId { get; set; }
 
-    public string? Status { get; set; }
+    public int? Status { get; set; }
 
     public virtual Applicant Applicant { get; set; } = null!;
 
     public virtual FormsEducationSpecialization FormsEducation { get; set; } = null!;
+
+    public virtual Status? StatusNavigation { get; set; }
 }

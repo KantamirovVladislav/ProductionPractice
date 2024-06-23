@@ -36,9 +36,9 @@ public class TablesListModel
             case ComissionEntitys.DocumentData:
                 _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetDocumentData());
                 break;
-            case ComissionEntitys.DocumentKey:
-                _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetDocumentKeys());
-                break;
+            // case ComissionEntitys.DocumentKey:
+            //     _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetDocumentKeys());
+            //     break;
             case ComissionEntitys.DocumentsImage:
                 _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetDocumentsImages());
                 break;
