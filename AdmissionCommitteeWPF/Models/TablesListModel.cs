@@ -36,9 +36,6 @@ public class TablesListModel
             case ComissionEntitys.DocumentData:
                 _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetDocumentData());
                 break;
-            // case ComissionEntitys.DocumentKey:
-            //     _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetDocumentKeys());
-            //     break;
             case ComissionEntitys.DocumentsImage:
                 _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetDocumentsImages());
                 break;
@@ -62,6 +59,21 @@ public class TablesListModel
                 break;
             case ComissionEntitys.TypeFinancing:
                 _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetTypeFinancings());
+                break;
+            case ComissionEntitys.Statuses:
+                _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetStatuses());
+                break;
+            case ComissionEntitys.ApplicantsDocumentImages:
+                _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetApplicantsDocumentImages());
+                break;
+            case ComissionEntitys.ApplicantsAndEducations:
+                _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetApplicantsAndEducations());
+                break;
+            case ComissionEntitys.ApplicantsAndDocumentsData:
+                _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetApplicantsAndDocumentsData());
+                break;
+            case ComissionEntitys.EducationBase:
+                _currentTable = new ObservableCollection<object>(await ExecuteCommandDataBase.GetEducationBases());
                 break;
         }
     }

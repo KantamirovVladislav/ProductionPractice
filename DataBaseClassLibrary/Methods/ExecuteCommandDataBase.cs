@@ -69,6 +69,32 @@ public class ExecuteCommandDataBase
     {
         return await _db.TypeFinancings.ToListAsync();
     }
+    
+    public static async Task<List<Status>> GetStatuses()
+    {
+        return await _db.Statuses.ToListAsync();
+    }
+    
+    public static async Task<List<Educationbase>> GetEducationBases()
+    {
+        return await _db.Educationbases.ToListAsync();
+    }
+    
+    public static async Task<List<Applicantsdocumentimage>> GetApplicantsDocumentImages()
+    {
+        return await _db.Applicantsdocumentimages.ToListAsync();
+    }
+    
+    public static async Task<List<Applicantsandeducation>> GetApplicantsAndEducations()
+    {
+        return await _db.Applicantsandeducations.ToListAsync();
+    }
+
+    public static async Task<List<ApplicantsAndDocumentsData>> GetApplicantsAndDocumentsData()
+    {
+        return await _db.Applicantsanddocumentsdata.ToListAsync();
+    }
+
     #endregion
 
     #region PersonalData

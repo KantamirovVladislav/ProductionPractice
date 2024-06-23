@@ -4,7 +4,7 @@ public enum ComissionEntitys
 {
     Applicant,
     DocumentData,
-    DocumentKey,
+    EducationBase,
     DocumentsImage,
     DocumentType,
     FormsEducationSpecialization,
@@ -12,5 +12,9 @@ public enum ComissionEntitys
     FormsSpecialization,
     KeysForDocument,
     Specialization,
-    TypeFinancing
+    TypeFinancing,
+    Statuses,
+    ApplicantsDocumentImages,
+    ApplicantsAndEducations,
+    ApplicantsAndDocumentsData
 }
