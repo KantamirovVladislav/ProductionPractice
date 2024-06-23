@@ -7,18 +7,6 @@
       "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\schedulewpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\schedulewpf\\specialty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\specialty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\schedulewpf\\schedulewpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\schedulewpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\schedulewpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -47,7 +35,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "ScheduleWPF\\MainWindow.xaml.cs",
@@ -59,50 +47,12 @@
               "IsPinned": true
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\App.xaml",
-              "RelativeDocumentMoniker": "ScheduleWPF\\App.xaml",
-              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\App.xaml",
-              "RelativeToolTip": "ScheduleWPF\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-23T20:29:27.276Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ScheduleWPF",
-              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\ScheduleWPF.csproj",
-              "RelativeDocumentMoniker": "ScheduleWPF\\ScheduleWPF.csproj",
-              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\ScheduleWPF.csproj",
-              "RelativeToolTip": "ScheduleWPF\\ScheduleWPF.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-06-23T20:29:18.648Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Specialty.cs",
-              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\Specialty.cs",
-              "RelativeDocumentMoniker": "ScheduleWPF\\Specialty.cs",
-              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\Specialty.cs",
-              "RelativeToolTip": "ScheduleWPF\\Specialty.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T20:23:01.815Z",
-              "EditorCaption": ""
             }
           ]
         }

@@ -10,7 +10,7 @@
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background= "White"
         Title="MainWindow" Height="700" Width="1100" WindowStartupLocation="CenterScreen">
 
     <Grid>
