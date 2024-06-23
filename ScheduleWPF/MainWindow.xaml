@@ -10,7 +10,7 @@
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="White"
         Title="MainWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="ListBoxItem">
