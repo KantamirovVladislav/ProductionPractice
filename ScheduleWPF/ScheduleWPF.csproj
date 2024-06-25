@@ -9,8 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MaterialDesignColors" Version="3.0.0" />
-      <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
+      <PackageReference Include="MaterialDesignColors" Version="3.1.0-ci670" />
+      <PackageReference Include="MaterialDesignThemes" Version="5.0.1-ci670" />
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
     </ItemGroup>
 

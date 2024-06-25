@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using DataBaseClassLibrary.Entities.Comission;
 
-namespace DataBaseClassLibrary.Entities.Comission;
+namespace DataBaseClassLibrary.Entities;
 
 public partial class DocumentsImage
 {
@@ -12,7 +11,7 @@ public partial class DocumentsImage
 
     public int DocumentTypeId { get; set; }
 
-    public byte[] Photo { get; set; } = null!;
+    public string Photo { get; set; } = null!;
 
     public virtual Applicant Applicant { get; set; } = null!;
 

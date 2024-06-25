@@ -1,4 +1,7 @@
-﻿namespace DataBaseClassLibrary.Entities.Schedules;
+﻿using System;
+using System.Collections.Generic;
+
+namespace DataBaseClassLibrary.Entities;
 
 public partial class Group
 {

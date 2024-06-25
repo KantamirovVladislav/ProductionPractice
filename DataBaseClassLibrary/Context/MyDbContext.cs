@@ -1,35 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using DataBaseClassLibrary.Entities.Schedules;
-using DataBaseClassLibrary.Entities.Comission;
-using DataBaseClassLibrary.Entities.PersonalData;
+using DataBaseClassLibrary.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataBaseClassLibrary.Context;
 
-/// <summary>
-/// Class for creating dataBase context. Class is abstract and if you want to create a context - use OpenConnectionDataBase class
-/// </summary>
-public abstract partial class MyDbContext : DbContext
+public partial class MyDbContext : DbContext
 {
-    protected MyDbContext()
+    public MyDbContext()
     {
     }
 
-    protected MyDbContext(DbContextOptions<MyDbContext> options)
+    public MyDbContext(DbContextOptions<MyDbContext> options)
         : base(options)
     {
     }
 
     public virtual DbSet<Applicant> Applicants { get; set; }
 
-    public virtual DbSet<DocumentKey> DocumentKeys { get; set; }
+    public virtual DbSet<ApplicantsAndDocumentsData> Applicantsanddocumentsdata { get; set; }
+
+    public virtual DbSet<Applicantsandeducation> Applicantsandeducations { get; set; }
+
+    public virtual DbSet<Applicantsdocumentimage> Applicantsdocumentimages { get; set; }
 
     public virtual DbSet<DocumentType> DocumentTypes { get; set; }
 
-    public virtual DbSet<DocumentData> DocumentsData { get; set; }
+    public virtual DbSet<DocumentData> Documentdata { get; set; }
 
     public virtual DbSet<DocumentsImage> DocumentsImages { get; set; }
+
+    public virtual DbSet<Educationbase> Educationbases { get; set; }
 
     public virtual DbSet<FormsEducationSpecialization> FormsEducationSpecializations { get; set; }
 
@@ -39,9 +40,9 @@ public abstract partial class MyDbContext : DbContext
 
     public virtual DbSet<Group> Groups { get; set; }
 
-    public virtual DbSet<KeysForDocument> KeysForDocuments { get; set; }
+    public virtual DbSet<Keysfordocument> Keysfordocuments { get; set; }
 
-    public virtual DbSet<PersonalAccountData> PersonalAccountsData { get; set; }
+    public virtual DbSet<PersonalAccountdata> PersonalAccountData { get; set; }
 
     public virtual DbSet<Room> Rooms { get; set; }
 
@@ -50,6 +51,8 @@ public abstract partial class MyDbContext : DbContext
     public virtual DbSet<Specialization> Specializations { get; set; }
 
     public virtual DbSet<Specialty> Specialties { get; set; }
+
+    public virtual DbSet<Status> Statuses { get; set; }
 
     public virtual DbSet<Subject> Subjects { get; set; }
 
@@ -60,6 +63,7 @@ public abstract partial class MyDbContext : DbContext
     public virtual DbSet<TypeFinancing> TypeFinancings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=0201");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -100,34 +104,91 @@ public abstract partial class MyDbContext : DbContext
                 .HasMaxLength(11)
                 .HasColumnName("snils");
             entity.Property(e => e.Status)
-                .HasMaxLength(50)
-                .HasDefaultValueSql("'NONE'::character varying")
+                .HasDefaultValue(1)
                 .HasColumnName("status");
+
+            entity.HasOne(d => d.StatusNavigation).WithMany(p => p.Applicants)
+                .HasForeignKey(d => d.Status)
+                .HasConstraintName("applicants_statuses_id_status_fk");
         });
 
-        modelBuilder.Entity<DocumentKey>(entity =>
+        modelBuilder.Entity<ApplicantsAndDocumentsData>(entity =>
         {
-            entity.HasKey(e => e.DocumentKeyId).HasName("document_keys_pkey");
+            entity
+                .HasNoKey()
+                .ToView("applicantsanddocumentsdata", "comission");
 
-            entity.ToTable("documentKeys", "comission");
-
-            entity.Property(e => e.DocumentKeyId)
-                .HasDefaultValueSql("nextval('comission.document_keys_document_key_id_seq'::regclass)")
-                .HasColumnName("document_key_id");
-            entity.Property(e => e.DocumentTypeId).HasColumnName("document_type_id");
-            entity.Property(e => e.Name)
+            entity.Property(e => e.DataValue).HasColumnName("data_value");
+            entity.Property(e => e.Documenttype)
                 .HasMaxLength(50)
+                .HasColumnName("documenttype");
+            entity.Property(e => e.FirstName)
+                .HasMaxLength(50)
+                .HasColumnName("first_name");
+            entity.Property(e => e.Keyname)
+                .HasMaxLength(50)
+                .HasColumnName("keyname");
+            entity.Property(e => e.LastName)
+                .HasMaxLength(50)
+                .HasColumnName("last_name");
+            entity.Property(e => e.Name)
+                .HasMaxLength(40)
                 .HasColumnName("name");
+            entity.Property(e => e.Photo).HasColumnName("photo");
+            entity.Property(e => e.Snils)
+                .HasMaxLength(11)
+                .HasColumnName("snils");
+        });
 
-            entity.HasOne(d => d.DocumentType).WithMany(p => p.DocumentKeys)
-                .HasForeignKey(d => d.DocumentTypeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("document_keys_document_type_id_fkey");
+        modelBuilder.Entity<Applicantsandeducation>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("applicantsandeducation", "comission");
 
-            entity.HasOne(d => d.NameNavigation).WithMany(p => p.DocumentKeys)
-                .HasForeignKey(d => d.Name)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("document_keys_keys_for_documents_name_fk");
+            entity.Property(e => e.Applicantsstatus).HasColumnName("applicantsstatus");
+            entity.Property(e => e.AverageScore)
+                .HasPrecision(3, 2)
+                .HasColumnName("average_score");
+            entity.Property(e => e.FirstName)
+                .HasMaxLength(50)
+                .HasColumnName("first_name");
+            entity.Property(e => e.FormsEducationId).HasColumnName("forms_education_id");
+            entity.Property(e => e.LastName)
+                .HasMaxLength(50)
+                .HasColumnName("last_name");
+            entity.Property(e => e.Name)
+                .HasMaxLength(40)
+                .HasColumnName("name");
+            entity.Property(e => e.Snils)
+                .HasMaxLength(11)
+                .HasColumnName("snils");
+            entity.Property(e => e.Status).HasColumnName("status");
+        });
+
+        modelBuilder.Entity<Applicantsdocumentimage>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("applicantsdocumentimage", "comission");
+
+            entity.Property(e => e.ApplicantId).HasColumnName("applicant_id");
+            entity.Property(e => e.FirstName)
+                .HasMaxLength(50)
+                .HasColumnName("first_name");
+            entity.Property(e => e.LastName)
+                .HasMaxLength(50)
+                .HasColumnName("last_name");
+            entity.Property(e => e.Name)
+                .HasMaxLength(40)
+                .HasColumnName("name");
+            entity.Property(e => e.Photo).HasColumnName("photo");
+            entity.Property(e => e.Snils)
+                .HasMaxLength(11)
+                .HasColumnName("snils");
+            entity.Property(e => e.Typename)
+                .HasMaxLength(50)
+                .HasColumnName("typename");
         });
 
         modelBuilder.Entity<DocumentType>(entity =>
@@ -192,6 +253,18 @@ public abstract partial class MyDbContext : DbContext
                 .HasConstraintName("documents_image_document_type_id_fkey");
         });
 
+        modelBuilder.Entity<Educationbase>(entity =>
+        {
+            entity.HasKey(e => e.BaseId).HasName("educationbase_pk");
+
+            entity.ToTable("educationbase", "comission");
+
+            entity.Property(e => e.BaseId).HasColumnName("base_id");
+            entity.Property(e => e.Content)
+                .HasMaxLength(255)
+                .HasColumnName("content");
+        });
+
         modelBuilder.Entity<FormsEducationSpecialization>(entity =>
         {
             entity.HasKey(e => e.FormsEducationId).HasName("forms_education_specialization_pkey");
@@ -203,14 +276,17 @@ public abstract partial class MyDbContext : DbContext
                 .HasColumnName("forms_education_id");
             entity.Property(e => e.CountPlaces).HasColumnName("count_places");
             entity.Property(e => e.DateEnrollment).HasColumnName("date_enrollment");
-            entity.Property(e => e.EducationBase)
-                .HasMaxLength(100)
-                .HasColumnName("education_base");
+            entity.Property(e => e.EducationBase).HasColumnName("education_base");
             entity.Property(e => e.FormEducation).HasColumnName("form_education");
             entity.Property(e => e.SpecializationId)
                 .HasMaxLength(20)
                 .HasColumnName("specialization_id");
             entity.Property(e => e.TypeFinancing).HasColumnName("type_financing");
+
+            entity.HasOne(d => d.EducationBaseNavigation).WithMany(p => p.FormsEducationSpecializations)
+                .HasForeignKey(d => d.EducationBase)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("formseducationspecialization_educationbase_base_id_fk");
 
             entity.HasOne(d => d.FormEducationNavigation).WithMany(p => p.FormsEducationSpecializations)
                 .HasForeignKey(d => d.FormEducation)
@@ -237,7 +313,7 @@ public abstract partial class MyDbContext : DbContext
             entity.Property(e => e.ApplicantId).HasColumnName("applicant_id");
             entity.Property(e => e.FormsEducationId).HasColumnName("forms_education_id");
             entity.Property(e => e.Status)
-                .HasMaxLength(255)
+                .HasDefaultValue(1)
                 .HasColumnName("status");
 
             entity.HasOne(d => d.Applicant).WithMany(p => p.FormsEducationSpecializationApplicants)
@@ -249,6 +325,10 @@ public abstract partial class MyDbContext : DbContext
                 .HasForeignKey(d => d.FormsEducationId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("forms_education_specialization_applican_forms_education_id_fkey");
+
+            entity.HasOne(d => d.StatusNavigation).WithMany(p => p.FormsEducationSpecializationApplicants)
+                .HasForeignKey(d => d.Status)
+                .HasConstraintName("formseducationspecializationapplicants_statuses_id_status_fk");
         });
 
         modelBuilder.Entity<FormsSpecialization>(entity =>
@@ -284,18 +364,38 @@ public abstract partial class MyDbContext : DbContext
                 .HasConstraintName("groups_specialty_id_fkey");
         });
 
-        modelBuilder.Entity<KeysForDocument>(entity =>
+        modelBuilder.Entity<Keysfordocument>(entity =>
         {
-            entity.HasKey(e => e.Name).HasName("keys_for_documents_pk");
+            entity.HasKey(e => e.KeyId).HasName("keysfordocuments_pk");
 
-            entity.ToTable("keysForDocuments", "comission");
+            entity.ToTable("keysfordocuments", "comission");
 
+            entity.Property(e => e.KeyId).HasColumnName("key_id");
             entity.Property(e => e.Name)
-                .HasMaxLength(255)
+                .HasMaxLength(50)
                 .HasColumnName("name");
+
+            entity.HasMany(d => d.DocumentTypes).WithMany(p => p.IdKeys)
+                .UsingEntity<Dictionary<string, object>>(
+                    "DocumentKey",
+                    r => r.HasOne<DocumentType>().WithMany()
+                        .HasForeignKey("DocumentTypeId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("document_keys_document_type_id_fkey"),
+                    l => l.HasOne<Keysfordocument>().WithMany()
+                        .HasForeignKey("IdKeys")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("documentkeys_keysfordocuments_key_id_fk"),
+                    j =>
+                    {
+                        j.HasKey("IdKeys", "DocumentTypeId").HasName("documentkeys_pk");
+                        j.ToTable("documentKeys", "comission");
+                        j.IndexerProperty<int>("IdKeys").HasColumnName("id_keys");
+                        j.IndexerProperty<int>("DocumentTypeId").HasColumnName("document_type_id");
+                    });
         });
 
-        modelBuilder.Entity<PersonalAccountData>(entity =>
+        modelBuilder.Entity<PersonalAccountdata>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("personal_account_data_pkey");
 
@@ -396,6 +496,18 @@ public abstract partial class MyDbContext : DbContext
             entity.Property(e => e.SpecialtyName)
                 .HasMaxLength(255)
                 .HasColumnName("specialty_name");
+        });
+
+        modelBuilder.Entity<Status>(entity =>
+        {
+            entity.HasKey(e => e.IdStatus).HasName("statuses_pk");
+
+            entity.ToTable("statuses", "comission");
+
+            entity.Property(e => e.IdStatus).HasColumnName("id_status");
+            entity.Property(e => e.Content)
+                .HasMaxLength(255)
+                .HasColumnName("content");
         });
 
         modelBuilder.Entity<Subject>(entity =>

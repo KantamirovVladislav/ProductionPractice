@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataBaseClassLibrary.Entities.Comission;
+namespace DataBaseClassLibrary.Entities;
 
 public partial class FormsEducationSpecialization
 {
@@ -13,11 +13,13 @@ public partial class FormsEducationSpecialization
 
     public int TypeFinancing { get; set; }
 
-    public string EducationBase { get; set; } = null!;
+    public int EducationBase { get; set; }
 
     public DateOnly DateEnrollment { get; set; }
 
     public int? CountPlaces { get; set; }
+
+    public virtual Educationbase EducationBaseNavigation { get; set; } = null!;
 
     public virtual FormsSpecialization FormEducationNavigation { get; set; } = null!;
 

@@ -1,8 +1,9 @@
-﻿using DataBaseClassLibrary.Entities.Comission;
+﻿using System;
+using System.Collections.Generic;
 
-namespace DataBaseClassLibrary.Entities.PersonalData;
+namespace DataBaseClassLibrary.Entities;
 
-public partial class PersonalAccountData
+public partial class PersonalAccountdata
 {
     public int Id { get; set; }
 

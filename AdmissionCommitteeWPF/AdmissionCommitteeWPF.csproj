@@ -9,7 +9,21 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="MaterialDesignColors" Version="3.1.0-ci670" />
+      <PackageReference Include="MaterialDesignThemes" Version="5.0.1-ci670" />
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Windows\ConnectionWin.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DataBaseClassLibrary\DataBaseClassLibrary.csproj" />
     </ItemGroup>
 
 </Project>
