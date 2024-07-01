@@ -8,7 +8,7 @@
       xmlns:vm="clr-namespace:AdmissionCommitteeWPF.ViewModel"
       xmlns:local="clr-namespace:AdmissionCommitteeWPF.Pages"
       mc:Ignorable="d"
-      Title="TablesView" Height="450" Width="800">
+      Title="TablesView">
     <Page.DataContext>
         <vm:TablesViewModel></vm:TablesViewModel>
     </Page.DataContext>
@@ -26,31 +26,33 @@
                       materialDesign:HintAssist.Hint="Выберите таблицу"
                       HorizontalAlignment="Left"
                       Margin="10"
-                      MinWidth="200"
-                      MinHeight="30"
-                      MaxHeight="80"
-                      MaxWidth="400"
                       ItemsSource="{Binding Tables}"
                       SelectedItem="{Binding Table}">
             </ComboBox>
         
             <Button 
                 Grid.Row="0" 
-                Command="{Binding LoadDataCommand}"
+                Command="{Binding SaveDataCommand}"
                 >Сохранить изменения</Button>
             
             <Button
                 Grid.Row="0"
                 Margin="10,0,0,0"
-                Command="{Binding }">Удалить строку</Button>
+                Command="{Binding RejectAllChanges}">Отменить все изменения</Button>
             
             <Button
                 Grid.Row="0"
                 Margin="10,0,0,0"
-                Command="{Binding BackCommand}">Отмена</Button>
+                Command="{Binding RejectChanges}">Отменить последнее изменение (В разработке)</Button>
         </StackPanel>
         
-        <DataGrid Grid.Row="1" Name="DataGrid" ItemsSource="{Binding TablesItems, Mode=TwoWay}" SelectedItem="{Binding SelectedRow}" >
+        <DataGrid Grid.Row="1" Name="DataGrid"  ItemsSource="{Binding TablesItems, Mode=TwoWay}" SelectedItem="{Binding SelectedRow}" >
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Копироавть"></MenuItem>
+                    <MenuItem Header="Удалить"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
     </Grid>
 </Page>

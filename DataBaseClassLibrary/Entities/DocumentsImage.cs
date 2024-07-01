@@ -17,5 +17,5 @@ public partial class DocumentsImage
 
     public virtual DocumentType DocumentType { get; set; } = null!;
 
-    public virtual ICollection<DocumentData> Documentdata { get; set; } = new List<DocumentData>();
+    public virtual ICollection<Documentdatum> Documentdata { get; set; } = new List<Documentdatum>();
 }

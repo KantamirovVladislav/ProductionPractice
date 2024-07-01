@@ -11,5 +11,5 @@ public partial class Specialty
 
     public virtual ICollection<Group> Groups { get; set; } = new List<Group>();
 
-    public virtual ICollection<Subject> Subjects { get; set; } = new List<Subject>();
+    public virtual ICollection<Specialtysubject> Specialtysubjects { get; set; } = new List<Specialtysubject>();
 }

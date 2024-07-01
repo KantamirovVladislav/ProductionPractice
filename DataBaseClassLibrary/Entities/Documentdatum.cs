@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DataBaseClassLibrary.Entities;
 
-public partial class DocumentData
+public partial class Documentdatum
 {
     public int DocumentDataId { get; set; }
 

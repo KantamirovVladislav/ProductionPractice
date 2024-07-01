@@ -9,7 +9,9 @@ public partial class Keysfordocument
 
     public string? Name { get; set; }
 
-    public virtual ICollection<DocumentData> Documentdata { get; set; } = new List<DocumentData>();
+    public virtual ICollection<Documentdatum> Documentdata { get; set; } = new List<Documentdatum>();
+    
+    public virtual ICollection<DocumentKey> DocumentKeys { get; set; } = new List<DocumentKey>();
 
     public virtual ICollection<DocumentType> DocumentTypes { get; set; } = new List<DocumentType>();
 }

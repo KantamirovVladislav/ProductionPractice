@@ -3,7 +3,6 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks.Dataflow;
 using DataBaseClassLibrary.Context;
 using DataBaseClassLibrary.Entities;
-using DataBaseClassLibrary.Entities.Comission;
 using Microsoft.EntityFrameworkCore;
 using Group = DataBaseClassLibrary.Entities.Group;
 
@@ -20,21 +19,36 @@ public class ExecuteCommandDataBase
         return await _db.Applicants.ToListAsync();
     }
 
-    public static async Task<List<DocumentData>> GetDocumentData()
+    public static async Task<List<Documentdatum>> GetDocumentData()
     {
         return await _db.Documentdata.ToListAsync();
     }
-    
+
+    public static async Task<List<DocumentKey>> GetKeys()
+    {
+        return await _db.DocumentKeys.ToListAsync();
+    }
+
     public static async Task<List<Keysfordocument>> GetKeysForDocuments()
     {
         return await _db.Keysfordocuments.ToListAsync();
     }
-    
-    // public static async Task<List<Keysfordocument>> GetKeysForDocuments()
-    // {
-    //     return await _db.Keysfordocuments.ToListAsync();
-    // }
-    
+
+    public static async Task<List<Statusesapplicant>> GetApplicantsStatuses()
+    {
+        return await _db.Statusesapplicants.ToListAsync();
+    }
+
+    public static async Task<List<Statusesforapplicant>> GetStatusesForApplicant()
+    {
+        return await _db.Statusesforapplicants.ToListAsync();
+    }
+
+    public static async Task<List<Statusesforeducation>> GetStatusesForEducation()
+    {
+        return await _db.Statusesforeducations.ToListAsync();
+    }
+
     public static async Task<List<DocumentsImage>> GetDocumentsImages()
     {
         return await _db.DocumentsImages.ToListAsync();
@@ -70,11 +84,6 @@ public class ExecuteCommandDataBase
         return await _db.TypeFinancings.ToListAsync();
     }
     
-    public static async Task<List<Status>> GetStatuses()
-    {
-        return await _db.Statuses.ToListAsync();
-    }
-    
     public static async Task<List<Educationbase>> GetEducationBases()
     {
         return await _db.Educationbases.ToListAsync();
@@ -90,7 +99,7 @@ public class ExecuteCommandDataBase
         return await _db.Applicantsandeducations.ToListAsync();
     }
 
-    public static async Task<List<ApplicantsAndDocumentsData>> GetApplicantsAndDocumentsData()
+    public static async Task<List<Applicantsanddocumentsdatum>> GetApplicantsAndDocumentsData()
     {
         return await _db.Applicantsanddocumentsdata.ToListAsync();
     }
@@ -99,7 +108,7 @@ public class ExecuteCommandDataBase
 
     #region PersonalData
     
-    public static async Task<List<PersonalAccountdata>> GetPersonalAccountsData()
+    public static async Task<List<PersonalAccountDatum>> GetPersonalAccountsData()
     {
         return await _db.PersonalAccountData.ToListAsync();
     }
@@ -146,6 +155,7 @@ public class ExecuteCommandDataBase
     
     #region BaseCommands
     
+    // Add range of entities to the database. Also save changes in the database
     public static async Task AddRangeEntityAsync(ObservableCollection<object> entities)
     {
         foreach (var entity in entities)
@@ -155,6 +165,7 @@ public class ExecuteCommandDataBase
         await _db.SaveChangesAsync();
     }
     
+    // Update range of entities in the database. Also save changes in the database
     public static async Task UpdateRangeEntityAsync(ObservableCollection<object> entities)
     {
         foreach (var entity in entities)
@@ -164,7 +175,9 @@ public class ExecuteCommandDataBase
         await _db.SaveChangesAsync();
     }
 
-    public static async Task SaveAddWithState(ObservableCollection<object> entities)
+    
+    // Save range of entities with state in the entityFramework. All detached entities will be added.
+    private static void SaveAddWithState(ObservableCollection<object> entities)
     {
         foreach (var item in entities)
         {
@@ -173,10 +186,9 @@ public class ExecuteCommandDataBase
                 _db.Entry(item).State = EntityState.Added;
             }
         }
-        await _db.SaveChangesAsync();
     }
-
-
+    
+    // Delete range of entities in the database. Also save changes in the database
     public static async Task DeleteRangeEntityAsync(ObservableCollection<object> entities)
     {
         foreach (var entity in entities)
@@ -186,7 +198,8 @@ public class ExecuteCommandDataBase
         await _db.SaveChangesAsync();
     }
 
-    public static async Task SaveDeleteWithState(ObservableCollection<object> entities)
+    // Save range of entities with state in the entityFramework. All detached entities will be deleted
+    private static void SaveDeleteWithState(ObservableCollection<object> entities)
     {
         foreach (var item in entities)
         {
@@ -196,27 +209,40 @@ public class ExecuteCommandDataBase
                 entry.State = EntityState.Deleted;
             }
         }
-        await _db.SaveChangesAsync();
     }
 
+    // Add entity to the database. Also save changes in the database
     public static async Task AddEntityAsync(object entity)
     {
         await _db.AddAsync(entity);
         await _db.SaveChangesAsync();
     }
     
+    // Update entity in the database. Also save changes in the database
     public static async Task UpdateEntityAsync(object entity)
     {
         _db.Update(entity);
         await _db.SaveChangesAsync();
     }
     
+    // Delete entity in the database. Also save changes in the database
     public static async Task DeleteEntityAsync(object entity)
     {
         _db.Remove(entity);
         await _db.SaveChangesAsync();
     }
     
+    // Save all changes in the database. Parameters are the list of added and deleted entities
+    public static async Task SaveDbChanges(ObservableCollection<object> addedEntities, ObservableCollection<object> deletedEntities)
+    {
+        if (deletedEntities.Count() != 0)
+            SaveDeleteWithState(deletedEntities);
+        if (addedEntities.Count() != 0)
+            SaveAddWithState(addedEntities);
+        await _db.SaveChangesAsync();
+    }
+    
+    // Reject all changes in the database. Use this method if you want to cancel all changes in the database
     public static void RejectAllChanges()
     {
         foreach (var entity in _db.ChangeTracker.Entries().ToList())
@@ -236,6 +262,7 @@ public class ExecuteCommandDataBase
         }
     }
 
+    // Reject last changes in the database. Use this method if you want to cancel last changes in the database
     public static void RejectChanges()
     {
         var entity = _db.ChangeTracker.Entries().ToList();

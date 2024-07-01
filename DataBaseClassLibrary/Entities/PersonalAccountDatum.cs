@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DataBaseClassLibrary.Entities;
 
-public partial class PersonalAccountdata
+public partial class PersonalAccountDatum
 {
     public int Id { get; set; }
 

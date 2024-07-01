@@ -13,5 +13,5 @@ public partial class Timeslot
 
     public TimeOnly EndTime { get; set; }
 
-    public virtual ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
+    public virtual ICollection<Scheduletimeslot> Scheduletimeslots { get; set; } = new List<Scheduletimeslot>();
 }

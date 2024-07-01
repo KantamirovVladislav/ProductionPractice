@@ -9,7 +9,11 @@ public partial class Teacher
 
     public string FullName { get; set; } = null!;
 
-    public string? ContactInfo { get; set; }
+    public int? CommissionId { get; set; }
+
+    public virtual Commission? Commission { get; set; }
+
+    public virtual ICollection<Commission> Commissions { get; set; } = new List<Commission>();
 
     public virtual ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
 }
