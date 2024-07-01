@@ -11,9 +11,11 @@ public partial class FormsEducationSpecializationApplicant
 
     public int? Status { get; set; }
 
+    public int? Priority { get; set; }
+
     public virtual Applicant Applicant { get; set; } = null!;
 
     public virtual FormsEducationSpecialization FormsEducation { get; set; } = null!;
 
-    public virtual Status? StatusNavigation { get; set; }
+    public virtual Statusesforeducation? StatusNavigation { get; set; }
 }

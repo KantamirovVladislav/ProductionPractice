@@ -9,7 +9,7 @@ public partial class DocumentType
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<DocumentsImage> DocumentsImages { get; set; } = new List<DocumentsImage>();
+    public virtual ICollection<DocumentKey> DocumentKeys { get; set; } = new List<DocumentKey>();
 
-    public virtual ICollection<Keysfordocument> IdKeys { get; set; } = new List<Keysfordocument>();
+    public virtual ICollection<DocumentsImage> DocumentsImages { get; set; } = new List<DocumentsImage>();
 }

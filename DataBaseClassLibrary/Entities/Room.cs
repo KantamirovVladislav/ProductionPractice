@@ -11,7 +11,7 @@ public partial class Room
 
     public int Capacity { get; set; }
 
-    public string? Equipment { get; set; }
+    public string Equipment { get; set; } = null!;
 
     public virtual ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
 }

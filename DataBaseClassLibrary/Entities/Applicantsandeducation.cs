@@ -15,9 +15,15 @@ public partial class Applicantsandeducation
 
     public decimal? AverageScore { get; set; }
 
-    public int? Applicantsstatus { get; set; }
+    public int? Preferentialcount { get; set; }
 
-    public int? FormsEducationId { get; set; }
+    public string? SpecializationId { get; set; }
 
-    public int? Status { get; set; }
+    public string? Specialityname { get; set; }
+
+    public string? Finansingname { get; set; }
+
+    public int? Priority { get; set; }
+
+    public string? Statusname { get; set; }
 }

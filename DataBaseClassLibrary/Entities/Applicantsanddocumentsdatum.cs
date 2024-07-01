@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DataBaseClassLibrary.Entities;
 
-public partial class ApplicantsAndDocumentsData
+public partial class Applicantsanddocumentsdatum
 {
     public string? Snils { get; set; }
 
