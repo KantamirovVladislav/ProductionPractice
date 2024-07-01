@@ -2,9 +2,9 @@
 
 namespace AdmissionCommitteeWPF.Pages;
 
-public partial class OpratorView : Page
+public partial class OperatorView : Page
 {
-    public OpratorView()
+    public OperatorView()
     {
         InitializeComponent();
     }

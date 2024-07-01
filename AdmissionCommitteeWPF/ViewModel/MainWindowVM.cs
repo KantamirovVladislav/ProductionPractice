@@ -42,7 +42,7 @@ public class MainWindowVM: ViewModelBase
          // File.WriteAllText("NavigationItem.json", jsonString);
          
          _NavigationItems = LoadNavigationMenu()["administrator"];
-         _currentPage = new TablesView();
+         _currentPage = new OperatorView();
          OnPropertyChanged("CurrentPage");
      }
      
@@ -73,6 +73,6 @@ public class MainWindowVM: ViewModelBase
     //
     // public MainWindowVM() {
     //     _applicants = new ObservableCollection<Applicant>();
-    //     LoadDataCommand = new RelayCommand(async () => await LoadData());
+    //     LoadDataCommand = new RelayCommandAsync(async () => await LoadData());
     // }
 }

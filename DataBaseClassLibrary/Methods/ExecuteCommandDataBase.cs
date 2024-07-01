@@ -4,6 +4,7 @@ using System.Threading.Tasks.Dataflow;
 using DataBaseClassLibrary.Context;
 using DataBaseClassLibrary.Entities;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using Group = DataBaseClassLibrary.Entities.Group;
 
 namespace DataBaseClassLibrary.Methods;
@@ -277,6 +278,26 @@ public class ExecuteCommandDataBase
             case EntityState.Deleted:
                 entity.Last().State = EntityState.Unchanged;
                 break;
+        }
+    }
+
+    #endregion
+
+    #region CustomCommandCommission
+
+    public static async Task AddImageData(int? applicantId, string documentType, int keyId, string data)
+    {
+        try
+        {
+            NpgsqlParameter parameter1 = new NpgsqlParameter("applicantid", applicantId);
+            NpgsqlParameter parameter2 = new NpgsqlParameter("documenttype", documentType);
+            NpgsqlParameter parameter3 = new NpgsqlParameter("keyid", keyId);
+            NpgsqlParameter parameter4 = new NpgsqlParameter("currentdata", data);
+            await _db.Database.ExecuteSqlRawAsync("call comission.insert_new_data_document(@applicantid, @documenttype, @keyid, @currentdata)", parameter1, parameter2, parameter3, parameter4);
+        }
+        catch (Exception e)
+        {
+            throw new ArgumentException($"Error in insert_new_data_document {e.Message}");
         }
     }
 
