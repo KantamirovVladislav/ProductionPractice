@@ -22,6 +22,23 @@ public class OperatorVM: ViewModelBase
 
     private string _data;
 
+    private string _resultData;
+
+    public string DisplayResultData
+    {
+        get => _resultData;
+        set => _resultData = value;
+    }
+
+    public string SortedValue
+    {
+        set
+        {
+            _operatorM.SortTable(value);
+            OnPropertyChanged("TableDisplay");
+        }
+    }
+
     public string Data
     {
         get => _data;
@@ -42,7 +59,7 @@ public class OperatorVM: ViewModelBase
         }
     }
 
-    public ObservableCollection<Applicantsdocumentimage> TableDisplay
+    public List<Applicantsdocumentimage> TableDisplay
     {
         get => _operatorM.CurrentTable;
         set => _operatorM.CurrentTable = value;
@@ -53,12 +70,26 @@ public class OperatorVM: ViewModelBase
         set
         {
             _selectedRow = value;
+            Task.Run(GetDocumentDataAsync);
+        }
+
+        get
+        {
+            return _selectedRow;
         }
     }
     
     public ICommand SelectedImageCommand { get; set; }
 
     public ICommand SaveCommand { get; set; }
+
+    private async Task GetDocumentDataAsync()
+    {
+        _resultData = "";
+        OnPropertyChanged("DisplayResultData");
+        _resultData = await _operatorM.GetDocumentData(SelectedRow.ApplicantId, SelectedRow.Typename);
+        OnPropertyChanged("DisplayResultData");
+    }
 
     private async Task SaveData()
     {
@@ -103,8 +134,10 @@ public class OperatorVM: ViewModelBase
             {
                 await _operatorM.InitializeTableAsync();
                 await _operatorM.InitKeys();
+                
                 OnPropertyChanged("TableDisplay");
                 OnPropertyChanged("DisplayKey");
+                OnPropertyChanged("DisplayResultData");
             }
         );
     }

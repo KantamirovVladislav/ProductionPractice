@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Drawing;
+using System.Text;
 using System.Windows.Media.Imaging;
 using DataBaseClassLibrary.Entities;
 using DataBaseClassLibrary.Methods;
@@ -12,7 +13,8 @@ namespace AdmissionCommitteeWPF.Models;
 
 public class OperatorM
 {
-    private ObservableCollection<Applicantsdocumentimage> _currentTable;
+    private List<Applicantsdocumentimage> _currentTableSorted;
+    private List<Applicantsdocumentimage> _currentTable;
 
     private List<Keysfordocument> _keys;
 
@@ -22,25 +24,37 @@ public class OperatorM
         set => _keys = value;
     }
 
-    public ObservableCollection<Applicantsdocumentimage> CurrentTable
+    public List<Applicantsdocumentimage> CurrentTable
     {
-        get => _currentTable;
-        set => _currentTable = value;
+        get => _currentTableSorted;
+        set => _currentTableSorted = value;
     }
     
     public OperatorM()
     {
-        _currentTable = new ObservableCollection<Applicantsdocumentimage>();
+        _currentTable = new List<Applicantsdocumentimage>();
     }
     
     public async Task InitializeTableAsync()
     {
-         _currentTable = new ObservableCollection<Applicantsdocumentimage>(await ExecuteCommandDataBase.GetApplicantsDocumentImages());
+         _currentTable = await ExecuteCommandDataBase.GetApplicantsDocumentImages();
+         _currentTableSorted = _currentTable;
     }
 
     public async Task InitKeys()
     {
         _keys = await ExecuteCommandDataBase.GetKeysForDocuments();
+    }
+
+    public async Task<string> GetDocumentData(int? applicantId, string documentType)
+    {
+        Dictionary<string, string> result = await ExecuteCommandDataBase.GetDocumentData(applicantId, documentType);
+        StringBuilder builder = new StringBuilder();
+        foreach (var value in result)
+        {
+            builder.Append($"{value.Key}: {value.Value} \n");
+        }
+        return builder.ToString();
     }
 
     public async Task InsertNewData(int? applicantId, string documentType, int keyId, string data)
@@ -74,5 +88,35 @@ public class OperatorM
         bitmapImage.Freeze();
 
         return bitmapImage;
+    }
+    
+    public void SortTable(string value)
+    {
+        if (value.All(char.IsDigit))
+        {
+            Console.WriteLine("Цифры");
+            CurrentTable = _currentTable.Where(x => x.Snils.Contains(value)).ToList();
+            return;
+        }
+
+        if (value.All(char.IsLetter))
+        {
+            Console.WriteLine("Буквы");
+            CurrentTable = _currentTable.Where(x => x.FirstName.Contains(value)).ToList();
+            return;
+        }
+
+        if (value.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)))
+        {
+            Console.WriteLine("Букавы и цифары");
+            string[] values = value.Split(" ");
+            CurrentTable = _currentTable.Where(x => x.FirstName.Contains(values[0]) && x.Snils.Contains(values[1]) ).ToList();
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            CurrentTable = _currentTable;
+        }
     }
 }

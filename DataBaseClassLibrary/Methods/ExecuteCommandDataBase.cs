@@ -300,6 +300,56 @@ public class ExecuteCommandDataBase
             throw new ArgumentException($"Error in insert_new_data_document {e.Message}");
         }
     }
+    
+    public static async Task<Dictionary<string, string>> GetDocumentData(int? applicantId, string documentType)
+    {
+        try
+        {
+            var connection = _db.Database.GetDbConnection();
+            await connection.OpenAsync();
+            var command = connection.CreateCommand();
+            command.Parameters.Add(new NpgsqlParameter("applicantId", applicantId));
+            command.Parameters.Add(new NpgsqlParameter("documentType", documentType));
+            command.CommandText = "select comission.get_document_data(@applicantId, @documentType)";
+            
+            var resultData = await command.ExecuteScalarAsync();
+            await connection.CloseAsync();
+            
+            Dictionary<string, string> result = new Dictionary<string, string>();
 
+           
+            string[] pairs = (resultData as string).Split(";");
+
+            
+            foreach (string pair in pairs)
+            {
+                
+                string[] keyValue = pair.Split(":");
+
+                
+                if (keyValue.Length == 2)
+                {
+                    string key = keyValue[0].Trim();
+                    string value = keyValue[1].Trim();
+                    
+                    Console.WriteLine(key);
+                    Console.WriteLine(value);
+
+                    
+                    if (!result.ContainsKey(key))
+                    {
+                        result.Add(key, value);
+                    }
+                }
+            }
+
+            return result;
+        }
+        catch (Exception e)
+        {
+            throw new ArgumentException($"Error in checkpasswordofuser {e.Message}");
+        }
+    }
+    
     #endregion
 }
