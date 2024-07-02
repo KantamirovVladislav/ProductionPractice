@@ -13,7 +13,9 @@
         TextOptions.TextFormattingMode="Ideal"
         Background="White"
         Title="MainWindow" Height="700" Width="1100" WindowStartupLocation="CenterScreen">
-
+    <Window.DataContext>
+        <local1:MainViewModel></local1:MainViewModel>
+    </Window.DataContext>
     <Grid>
         <!-- Menu Bar -->
         <Menu VerticalAlignment="Top" Margin="0,0,0,10">
