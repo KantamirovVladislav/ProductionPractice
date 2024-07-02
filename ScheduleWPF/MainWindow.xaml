@@ -4,14 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScheduleWPF"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:local1="clr-namespace:ScheduleWPF.ViewModels"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
-        Background= "White"
+        Background="White"
         Title="MainWindow" Height="700" Width="1100" WindowStartupLocation="CenterScreen">
+
     <Grid>
         <!-- Menu Bar -->
         <Menu VerticalAlignment="Top" Margin="0,0,0,10">
@@ -32,51 +34,33 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Учебный год -->
-            <GroupBox Header="Учебный год" Margin="10" Grid.Column="0" materialDesign:ColorZoneAssist.Mode="PrimaryLight">
-                <ListBox>
-                    <ListBoxItem Content="2020-2021"/>
-                    <ListBoxItem Content="2021-2022"/>
-                    <ListBoxItem Content="2022-2023"/>
-                    <ListBoxItem Content="2023-2024"/>
+            <!-- Специальности -->
+            <GroupBox Header="Специальности" Margin="10" Grid.Column="0" materialDesign:ColorZoneAssist.Mode="PrimaryLight">
+                <ListBox ItemsSource="{Binding Specialties}" SelectedItem="{Binding SelectedSpecialty}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding SpecialtyName}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
             </GroupBox>
 
-            <!-- Активные недели -->
-            <GroupBox Header="Активные недели" Margin="10" Grid.Column="1" materialDesign:ColorZoneAssist.Mode="PrimaryLight">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <TextBox Text="0" Width="40" Margin="5" materialDesign:HintAssist.Hint="Weeks"/>
-                        <Button Content="+" Width="40" Height="30" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
-                    </StackPanel>
-                    <ListBox>
-                        <ListBoxItem Content="41 с 03.06.2024 по 09.06.2024"/>
-                        <ListBoxItem Content="42 с 10.06.2024 по 16.06.2024"/>
-                        <ListBoxItem Content="43 с 17.06.2024 по 23.06.2024"/>
-                        <ListBoxItem Content="44 с 24.06.2024 по 30.06.2024"/>
-                        <ListBoxItem Content="45 с 01.07.2024 по 07.07.2024"/>
-                        <ListBoxItem Content="46 с 08.07.2024 по 14.07.2024"/>
-                        <ListBoxItem Content="47 с 15.07.2024 по 21.07.2024"/>
-                        <ListBoxItem Content="48 с 22.07.2024 по 28.07.2024"/>
-                        <ListBoxItem Content="49 с 29.07.2024 по 04.08.2024"/>
-                        <ListBoxItem Content="50 с 05.08.2024 по 11.08.2024"/>
-                        <ListBoxItem Content="51 с 12.08.2024 по 18.08.2024"/>
-                        <ListBoxItem Content="52 с 19.08.2024 по 25.08.2024"/>
-                        <ListBoxItem Content="1 Дополнительная"/>
-                        <ListBoxItem Content="2 Дополнительная"/>
-                        <ListBoxItem Content="3 Дополнительная"/>
-                        <ListBoxItem Content="4 Дополнительная"/>
-                    </ListBox>
-                </StackPanel>
+            <!-- Группы -->
+            <GroupBox Header="Группы" Margin="10" Grid.Column="1" materialDesign:ColorZoneAssist.Mode="PrimaryLight">
+                <ListBox ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedGroup}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding GroupName}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </GroupBox>
 
             <!-- Right Side Buttons -->
             <StackPanel Grid.Column="2" Margin="10">
-                <Button Content="Г" Height="40" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
-                <Button Content="Ф" Height="40" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
-                <Button Content="П" Height="40" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
-                <Button Content="А" Height="40" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
-                <!-- Add more buttons as needed -->
+                <Button Content="Добавить Специальность" Height="40" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding AddSpecialtyCommand}"/>
+                <Button Content="Удалить Специальность" Height="40" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding RemoveSpecialtyCommand}" CommandParameter="{Binding SelectedSpecialty}"/>
+                <!-- Add more buttons for other entities as needed -->
             </StackPanel>
         </Grid>
     </Grid>
