@@ -4,6 +4,7 @@ using System.Threading.Tasks.Dataflow;
 using DataBaseClassLibrary.Context;
 using DataBaseClassLibrary.Entities;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using Group = DataBaseClassLibrary.Entities.Group;
 
 namespace DataBaseClassLibrary.Methods;
@@ -278,6 +279,138 @@ public class ExecuteCommandDataBase
                 entity.Last().State = EntityState.Unchanged;
                 break;
         }
+    }
+
+    #endregion
+
+    #region CustomCommandCommission
+
+    public static async Task AddImageData(int? applicantId, string documentType, int keyId, string data)
+    {
+        try
+        {
+            NpgsqlParameter parameter1 = new NpgsqlParameter("applicantid", applicantId);
+            NpgsqlParameter parameter2 = new NpgsqlParameter("documenttype", documentType);
+            NpgsqlParameter parameter3 = new NpgsqlParameter("keyid", keyId);
+            NpgsqlParameter parameter4 = new NpgsqlParameter("currentdata", data);
+            await _db.Database.ExecuteSqlRawAsync("call comission.insert_new_data_document(@applicantid, @documenttype, @keyid, @currentdata)", parameter1, parameter2, parameter3, parameter4);
+        }
+        catch (Exception e)
+        {
+            throw new ArgumentException($"Error in insert_new_data_document {e.Message}");
+        }
+    }
+    
+    public static async Task UpdateStatusDocument(int? applicantId, string documentType)
+    {
+        try
+        {
+            NpgsqlParameter parameter1 = new NpgsqlParameter("applicantid", applicantId);
+            NpgsqlParameter parameter2 = new NpgsqlParameter("documenttype", documentType);
+            await _db.Database.ExecuteSqlRawAsync("call comission.update_status_document(@applicantid, @documenttype)", parameter1, parameter2);
+        }
+        catch (Exception e)
+        {
+            throw new ArgumentException($"Error in update_status_document {e.Message}");
+        }
+    }
+    
+    public static async Task UpdateStatusSpecialization(string snils, string specId, string typeFin, int status)
+    {
+        try
+        {
+            NpgsqlParameter parameter1 = new NpgsqlParameter("_snils", snils);
+            NpgsqlParameter parameter2 = new NpgsqlParameter("specializationid", specId);
+            NpgsqlParameter parameter3 = new NpgsqlParameter("type_financing", typeFin);
+            NpgsqlParameter parameter4 = new NpgsqlParameter("_status", status);
+            await _db.Database.ExecuteSqlRawAsync("call comission.update_status_specialization_applicants(@_snils, @specializationid, @type_financing,  @_status)", parameter1, parameter2, parameter3, parameter4);
+        }
+        catch (Exception e)
+        {
+            throw new ArgumentException($"Error in update_status_document {e.Message}");
+        }
+    }
+    
+    public static async Task<Dictionary<string, string>> GetDocumentData(int? applicantId, string documentType)
+    {
+        try
+        {
+            var connection = _db.Database.GetDbConnection();
+            await connection.OpenAsync();
+            var command = connection.CreateCommand();
+            command.Parameters.Add(new NpgsqlParameter("applicantId", applicantId));
+            command.Parameters.Add(new NpgsqlParameter("documentType", documentType));
+            command.CommandText = "select comission.get_document_data(@applicantId, @documentType)";
+            
+            var resultData = await command.ExecuteScalarAsync();
+            await connection.CloseAsync();
+            
+            return DeserializeDictionary(resultData as string);
+        }
+        catch (Exception e)
+        {
+            throw new ArgumentException($"Error in get_document_data {e.Message}");
+        }
+    }
+    
+    public static async Task<Dictionary<string, string>> GetApplicantDocuments(string snils)
+    {
+        try
+        {
+            var connection = _db.Database.GetDbConnection();
+            await connection.OpenAsync();
+            var command = connection.CreateCommand();
+            command.Parameters.Add(new NpgsqlParameter("_snils", snils));
+
+            command.CommandText = "select comission.get_documents_applicant(@_snils)";
+            
+            var resultData = await command.ExecuteScalarAsync();
+            await connection.CloseAsync();
+            
+            return DeserializeDictionary(resultData as string);
+        }
+        catch (Exception e)
+        {
+            throw new ArgumentException($"Error in get_document_data {e.Message}");
+        }
+    }
+
+    private static Dictionary<string, string> DeserializeDictionary(string? data)
+    {
+        if (data is not string)
+        {
+            return null;
+        }
+
+        Dictionary<string, string> result = new Dictionary<string, string>();
+
+           
+        string[] pairs = (data as string).Split(";");
+
+            
+        foreach (string pair in pairs)
+        {
+                
+            string[] keyValue = pair.Split(":");
+
+                
+            if (keyValue.Length == 2)
+            {
+                string key = keyValue[0].Trim();
+                string value = keyValue[1].Trim();
+                    
+                Console.WriteLine(key);
+                Console.WriteLine(value);
+
+                    
+                if (!result.ContainsKey(key))
+                {
+                    result.Add(key, value);
+                }
+            }
+        }
+
+        return result;
     }
 
     #endregion

@@ -10,4 +10,9 @@ public partial class Statusesforeducation
     public string Name { get; set; } = null!;
 
     public virtual ICollection<FormsEducationSpecializationApplicant> FormsEducationSpecializationApplicants { get; set; } = new List<FormsEducationSpecializationApplicant>();
+
+    public override string ToString()
+    {
+        return Name;
+    }
 }

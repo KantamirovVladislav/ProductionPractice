@@ -19,10 +19,53 @@ public class MainWindowVM: ViewModelBase
 {
     private Page _currentPage;
 
+    private NavigationItems _selectedPage;
+
     public Page CurrentPage
     {
-        get { return _currentPage; }
-        set { _currentPage = value; }
+        get
+        {
+            return _currentPage;
+        }
+        set
+        {
+            
+            _currentPage = value;
+        }
+    }
+
+    public NavigationItems SelectedPage
+    {
+        get => _selectedPage;
+        set
+        {
+            try
+            {
+                _selectedPage = value;
+                if (_selectedPage != null) 
+                {
+                    if (SelectedPage.Title == "Таблицы")
+                    {
+                        CurrentPage = new TablesView();
+                        OnPropertyChanged("CurrentPage");
+                    }
+                    else if (SelectedPage.Title == "Данные документов")
+                    {
+                        CurrentPage = new OperatorView();
+                        OnPropertyChanged("CurrentPage");
+                    }
+                    else if (SelectedPage.Title == "Приёмная комиссия")
+                    {
+                        CurrentPage = new CommissionView();
+                        OnPropertyChanged("CurrentPage");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
     }
     public ObservableCollection<NavigationItems> _NavigationItems { get; }
     
@@ -32,7 +75,9 @@ public class MainWindowVM: ViewModelBase
      //        {
      //            "administrator", new ObservableCollection<NavigationItems>
      //            {
-     //                new NavigationItems { Title = "Таблицы", Notification = "", SelectedIcon =  PackIconKind.FileTableBoxMultiple, UnselectedIcon = PackIconKind.FileTableBoxMultipleOutline }
+     //                new NavigationItems { Title = "Таблицы", Notification = "", SelectedIcon =  PackIconKind.FileTableBoxMultiple, UnselectedIcon = PackIconKind.FileTableBoxMultipleOutline },
+     //                new NavigationItems {Title = "Данные документов", Notification = "", SelectedIcon = PackIconKind.AccountTieHat, UnselectedIcon = PackIconKind.AccountTieHatOutline},
+     //                new NavigationItems {Title = "Приёмная комиссия", Notification = "", SelectedIcon = PackIconKind.Gavel, UnselectedIcon = PackIconKind.Gavel}
      //            }
      //        }
      //    };
@@ -42,7 +87,7 @@ public class MainWindowVM: ViewModelBase
          // File.WriteAllText("NavigationItem.json", jsonString);
          
          _NavigationItems = LoadNavigationMenu()["administrator"];
-         _currentPage = new TablesView();
+         _currentPage = new OperatorView();
          OnPropertyChanged("CurrentPage");
      }
      
@@ -73,6 +118,6 @@ public class MainWindowVM: ViewModelBase
     //
     // public MainWindowVM() {
     //     _applicants = new ObservableCollection<Applicant>();
-    //     LoadDataCommand = new RelayCommand(async () => await LoadData());
+    //     LoadDataCommand = new RelayCommandAsync(async () => await LoadData());
     // }
 }

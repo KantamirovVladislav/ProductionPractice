@@ -2,12 +2,12 @@
 
 namespace AdmissionCommitteeWPF.ViewModel;
 
-public class RelayCommand: ICommand
+public class RelayCommandAsync: ICommand
 {
-    private readonly Action<object> _execute;
+    private readonly Func<Task> _execute;
     private readonly Func<bool> _canExecute;
 
-    public RelayCommand(Action<object> execute, Func<bool> canExecute = null)
+    public RelayCommandAsync(Func<Task> execute, Func<bool> canExecute = null)
     {
         _execute = execute ?? throw new ArgumentNullException(nameof(execute));
         _canExecute = canExecute;
@@ -18,9 +18,9 @@ public class RelayCommand: ICommand
         return _canExecute == null || _canExecute();
     }
 
-    public void Execute(object parameter)
+    public async void Execute(object parameter)
     {
-        _execute(parameter);
+        await _execute();
     }
 
     public event EventHandler CanExecuteChanged

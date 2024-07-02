@@ -142,9 +142,9 @@ public class TablesViewModel: ViewModelBase
     public TablesViewModel()
     {
         _tablesModel = new TablesListModel();
-        SaveDataCommand = new RelayCommand(async () => await SaveDataAsync());
-        RejectAllChanges = new RelayCommand(async () => await RejectAllChangesAsync());
-        RejectChanges = new RelayCommand(async () => await RejectChangesAsync());
+        SaveDataCommand = new RelayCommandAsync(async () => await SaveDataAsync());
+        RejectAllChanges = new RelayCommandAsync(async () => await RejectAllChangesAsync());
+        RejectChanges = new RelayCommandAsync(async () => await RejectChangesAsync());
         LoadListTables();
     }
 

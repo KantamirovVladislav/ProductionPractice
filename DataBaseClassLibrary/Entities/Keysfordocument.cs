@@ -14,4 +14,9 @@ public partial class Keysfordocument
     public virtual ICollection<DocumentKey> DocumentKeys { get; set; } = new List<DocumentKey>();
 
     public virtual ICollection<DocumentType> DocumentTypes { get; set; } = new List<DocumentType>();
+
+    public override string ToString()
+    {
+        return Name;
+    }
 }
