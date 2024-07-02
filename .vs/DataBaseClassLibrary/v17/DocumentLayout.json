@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\schedulewpf\\schedulewpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\schedulewpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6736D015-23C5-42EE-998B-E17589AEED93}|DataBaseClassLibrary\\DataBaseClassLibrary.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\databaseclasslibrary\\databaseclasslibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6736D015-23C5-42EE-998B-E17589AEED93}|DataBaseClassLibrary\\DataBaseClassLibrary.csproj|solutionrelative:databaseclasslibrary\\databaseclasslibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\schedulewpf\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\schedulewpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\schedulewpf\\viewmodellocator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\viewmodellocator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\schedulewpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -11,20 +31,24 @@
       "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B8B4953-C234-4562-9B77-D2272D33E909}|AdmissionCommitteeWPF\\AdmissionCommitteeWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\admissioncommitteewpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8B8B4953-C234-4562-9B77-D2272D33E909}|AdmissionCommitteeWPF\\AdmissionCommitteeWPF.csproj|solutionrelative:admissioncommitteewpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\schedulewpf\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737260F7-2FC1-484F-AA82-616CD05D5047}|ScheduleWPF\\ScheduleWPF.csproj|solutionrelative:schedulewpf\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B8B4953-C234-4562-9B77-D2272D33E909}|AdmissionCommitteeWPF\\AdmissionCommitteeWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\admissioncommitteewpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B8B4953-C234-4562-9B77-D2272D33E909}|AdmissionCommitteeWPF\\AdmissionCommitteeWPF.csproj|solutionrelative:admissioncommitteewpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6736D015-23C5-42EE-998B-E17589AEED93}|DataBaseClassLibrary\\DataBaseClassLibrary.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\databaseclasslibrary\\entities\\specialty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6736D015-23C5-42EE-998B-E17589AEED93}|DataBaseClassLibrary\\DataBaseClassLibrary.csproj|solutionrelative:databaseclasslibrary\\entities\\specialty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B8B4953-C234-4562-9B77-D2272D33E909}|AdmissionCommitteeWPF\\AdmissionCommitteeWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\admissioncommitteewpf\\viewmodel\\tablesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B8B4953-C234-4562-9B77-D2272D33E909}|AdmissionCommitteeWPF\\AdmissionCommitteeWPF.csproj|solutionrelative:admissioncommitteewpf\\viewmodel\\tablesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6736D015-23C5-42EE-998B-E17589AEED93}|DataBaseClassLibrary\\DataBaseClassLibrary.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\databaseclasslibrary\\entities\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6736D015-23C5-42EE-998B-E17589AEED93}|DataBaseClassLibrary\\DataBaseClassLibrary.csproj|solutionrelative:databaseclasslibrary\\entities\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B8B4953-C234-4562-9B77-D2272D33E909}|AdmissionCommitteeWPF\\AdmissionCommitteeWPF.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\admissioncommitteewpf\\models\\navigationitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B8B4953-C234-4562-9B77-D2272D33E909}|AdmissionCommitteeWPF\\AdmissionCommitteeWPF.csproj|solutionrelative:admissioncommitteewpf\\models\\navigationitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6736D015-23C5-42EE-998B-E17589AEED93}|DataBaseClassLibrary\\DataBaseClassLibrary.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\databaseclasslibrary\\context\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6736D015-23C5-42EE-998B-E17589AEED93}|DataBaseClassLibrary\\DataBaseClassLibrary.csproj|solutionrelative:databaseclasslibrary\\context\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6736D015-23C5-42EE-998B-E17589AEED93}|DataBaseClassLibrary\\DataBaseClassLibrary.csproj|c:\\users\\emil\\source\\repos\\productionpractice\\databaseclasslibrary\\context\\openconnectiondatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6736D015-23C5-42EE-998B-E17589AEED93}|DataBaseClassLibrary\\DataBaseClassLibrary.csproj|solutionrelative:databaseclasslibrary\\context\\openconnectiondatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,16 +58,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\MainWindow.xaml",
               "RelativeDocumentMoniker": "ScheduleWPF\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\MainWindow.xaml",
-              "RelativeToolTip": "ScheduleWPF\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\MainWindow.xaml*",
+              "RelativeToolTip": "ScheduleWPF\\MainWindow.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-06-22T12:54:25.183Z",
               "IsPinned": true,
@@ -51,13 +75,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "ScheduleWPF\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\MainWindow.xaml.cs",
               "RelativeToolTip": "ScheduleWPF\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-22T12:54:47.393Z",
               "IsPinned": true,
@@ -65,53 +89,131 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NavigationItems.cs",
-              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\AdmissionCommitteeWPF\\Models\\NavigationItems.cs",
-              "RelativeDocumentMoniker": "AdmissionCommitteeWPF\\Models\\NavigationItems.cs",
-              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\AdmissionCommitteeWPF\\Models\\NavigationItems.cs",
-              "RelativeToolTip": "AdmissionCommitteeWPF\\Models\\NavigationItems.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T10:47:42.217Z",
+              "DocumentIndex": 1,
+              "Title": "DataBaseClassLibrary",
+              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\DataBaseClassLibrary\\DataBaseClassLibrary.csproj",
+              "RelativeDocumentMoniker": "DataBaseClassLibrary\\DataBaseClassLibrary.csproj",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\DataBaseClassLibrary\\DataBaseClassLibrary.csproj",
+              "RelativeToolTip": "DataBaseClassLibrary\\DataBaseClassLibrary.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-01T11:41:58.759Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "TablesViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\AdmissionCommitteeWPF\\ViewModel\\TablesViewModel.cs",
-              "RelativeDocumentMoniker": "AdmissionCommitteeWPF\\ViewModel\\TablesViewModel.cs",
-              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\AdmissionCommitteeWPF\\ViewModel\\TablesViewModel.cs",
-              "RelativeToolTip": "AdmissionCommitteeWPF\\ViewModel\\TablesViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAtAAAA",
+              "Title": "ViewModelLocator.cs",
+              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\ViewModelLocator.cs",
+              "RelativeDocumentMoniker": "ScheduleWPF\\ViewModelLocator.cs",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\ViewModelLocator.cs",
+              "RelativeToolTip": "ScheduleWPF\\ViewModelLocator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T10:46:42.241Z",
+              "WhenOpened": "2024-07-01T11:33:02.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\AdmissionCommitteeWPF\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "AdmissionCommitteeWPF\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\AdmissionCommitteeWPF\\MainWindow.xaml.cs",
-              "RelativeToolTip": "AdmissionCommitteeWPF\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T10:42:34.919Z",
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\App.xaml",
+              "RelativeDocumentMoniker": "ScheduleWPF\\App.xaml",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\App.xaml*",
+              "RelativeToolTip": "ScheduleWPF\\App.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-07-01T11:32:24.154Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\AdmissionCommitteeWPF\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "AdmissionCommitteeWPF\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\AdmissionCommitteeWPF\\MainWindow.xaml",
-              "RelativeToolTip": "AdmissionCommitteeWPF\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-25T10:42:28.291Z",
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "ScheduleWPF\\ViewModels\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\ViewModels\\MainViewModel.cs*",
+              "RelativeToolTip": "ScheduleWPF\\ViewModels\\MainViewModel.cs*",
+              "ViewState": "AQIAAAwAAADgmpmZmZkhwBwAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T11:28:06.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ScheduleWPF",
+              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\ScheduleWPF.csproj",
+              "RelativeDocumentMoniker": "ScheduleWPF\\ScheduleWPF.csproj",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\ScheduleWPF.csproj*",
+              "RelativeToolTip": "ScheduleWPF\\ScheduleWPF.csproj*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-01T11:27:36.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "ScheduleWPF\\RelayCommand.cs",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\ScheduleWPF\\RelayCommand.cs*",
+              "RelativeToolTip": "ScheduleWPF\\RelayCommand.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T11:36:18.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Specialty.cs",
+              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\DataBaseClassLibrary\\Entities\\Specialty.cs",
+              "RelativeDocumentMoniker": "DataBaseClassLibrary\\Entities\\Specialty.cs",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\DataBaseClassLibrary\\Entities\\Specialty.cs",
+              "RelativeToolTip": "DataBaseClassLibrary\\Entities\\Specialty.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T11:27:05.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Schedule.cs",
+              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\DataBaseClassLibrary\\Entities\\Schedule.cs",
+              "RelativeDocumentMoniker": "DataBaseClassLibrary\\Entities\\Schedule.cs",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\DataBaseClassLibrary\\Entities\\Schedule.cs",
+              "RelativeToolTip": "DataBaseClassLibrary\\Entities\\Schedule.cs",
+              "ViewState": "AQIAAAoAAAAANDMzMzMRwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T11:26:56.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OpenConnectionDataBase.cs",
+              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\DataBaseClassLibrary\\Context\\OpenConnectionDataBase.cs",
+              "RelativeDocumentMoniker": "DataBaseClassLibrary\\Context\\OpenConnectionDataBase.cs",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\DataBaseClassLibrary\\Context\\OpenConnectionDataBase.cs",
+              "RelativeToolTip": "DataBaseClassLibrary\\Context\\OpenConnectionDataBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T11:26:25.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\DataBaseClassLibrary\\Context\\MyDbContext.cs",
+              "RelativeDocumentMoniker": "DataBaseClassLibrary\\Context\\MyDbContext.cs",
+              "ToolTip": "C:\\Users\\emil\\source\\repos\\ProductionPractice\\DataBaseClassLibrary\\Context\\MyDbContext.cs",
+              "RelativeToolTip": "DataBaseClassLibrary\\Context\\MyDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T11:26:10.376Z",
               "EditorCaption": ""
             },
             {
@@ -121,6 +223,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             }
           ]
         }
