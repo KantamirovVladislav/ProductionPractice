@@ -56,7 +56,8 @@ public class MainWindowVM: ViewModelBase
                     }
                     else if (SelectedPage.Title == "Приёмная комиссия")
                     {
-                        
+                        CurrentPage = new CommissionView();
+                        OnPropertyChanged("CurrentPage");
                     }
                 }
             }

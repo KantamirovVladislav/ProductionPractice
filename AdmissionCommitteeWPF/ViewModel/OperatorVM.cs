@@ -83,6 +83,21 @@ public class OperatorVM: ViewModelBase
 
     public ICommand SaveCommand { get; set; }
 
+    public ICommand FinallyDocumentCommand { get; set; }
+
+    private async Task UpdateStatus()
+    {
+        try
+        {
+            await _operatorM.UpdateStatusDocumentAsync(SelectedRow.ApplicantId, SelectedRow.Typename);
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show(e.Message);
+        }
+        
+    }
+
     private async Task GetDocumentDataAsync()
     {
         _resultData = "";
@@ -129,6 +144,7 @@ public class OperatorVM: ViewModelBase
     {
         _operatorM = new OperatorM();
         SelectedImageCommand = new RelayCommand(SelectedImage);
+        FinallyDocumentCommand = new RelayCommandAsync(UpdateStatus);
         SaveCommand = new RelayCommandAsync(async () => await SaveData());
         Task.Run(async () =>
             {

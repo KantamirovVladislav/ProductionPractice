@@ -26,6 +26,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBox
                     FontSize="30"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     materialDesign:HintAssist.Hint="Поиск" 
                     MinWidth="200"
                     Text="{Binding SortedValue,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"></TextBox>
@@ -34,7 +35,13 @@
         </WrapPanel>
         <WrapPanel Grid.Row="1" Grid.ColumnSpan="2" >
             <ScrollViewer>
-                <DataGrid IsReadOnly="True" FontSize="14" ItemsSource="{Binding TableDisplay}"  SelectedItem="{Binding SelectedRow}" AutoGenerateColumns="False">
+                <DataGrid 
+                    IsReadOnly="True" 
+                    FontSize="14" 
+                    ItemsSource="{Binding TableDisplay}"  
+                    SelectedItem="{Binding SelectedRow}" 
+                    SelectionMode="Single"
+                    AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn  Header="Код абитуриента" Binding="{Binding ApplicantId}" Width="*"></DataGridTextColumn>
                         <DataGridTextColumn Header="Фамилия" Binding="{Binding FirstName}" Width="*"></DataGridTextColumn>
@@ -62,11 +69,13 @@
             <ComboBox 
                     Margin="10" 
                     FontSize="18" 
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                     materialDesign:HintAssist.Hint="Выберите ключ" 
                     ItemsSource="{Binding DisplayKey}"
                     SelectedItem="{Binding SelectedKey}"></ComboBox>
                 <TextBox  
                     Margin="10" 
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     FontSize="18" 
                     materialDesign:HintAssist.Hint="Введите значение ключа" 
                     Text="{Binding Data}"></TextBox>
@@ -75,6 +84,11 @@
                     FontSize="18" 
                     MinHeight="35"
                     Command="{Binding SaveCommand}"></Button>
+                <Button 
+                    Content="Завершить документ" 
+                    FontSize="18" 
+                    MinHeight="35"
+                    Command="{Binding FinallyDocumentCommand}"></Button>
             </StackPanel>
         </ScrollViewer>
         <ScrollViewer Grid.Row="2"

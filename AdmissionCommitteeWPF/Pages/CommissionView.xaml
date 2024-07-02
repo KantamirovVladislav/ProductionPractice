@@ -3,10 +3,88 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:model="clr-namespace:AdmissionCommitteeWPF.Models"
+      xmlns:vm="clr-namespace:AdmissionCommitteeWPF.ViewModel"
       xmlns:local="clr-namespace:AdmissionCommitteeWPF.Pages"
       mc:Ignorable="d"
-      Title="CommissionView" Height="450" Width="800">
-    <Grid>
+      Title="CommissionView">
+    <Page.DataContext>
+        <vm:CommissionVM></vm:CommissionVM>
+    </Page.DataContext>
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.6*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+        </Grid.RowDefinitions>
         
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel 
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Orientation="Horizontal"
+            Margin="5">
+                <TextBox 
+                    Margin="5,5,15,5" 
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding FIOSorted, UpdateSourceTrigger=PropertyChanged}"
+                    materialDesign:HintAssist.Hint="Поиск по ФИО"
+                    ></TextBox>
+                <TextBox
+                    Margin="5,5,15,5" 
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding SpecializationSorted, UpdateSourceTrigger=PropertyChanged}"
+                    materialDesign:HintAssist.Hint="Поиск специальности"></TextBox>
+                <TextBox
+                    Margin="5,5,15,5" 
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding AverageMoreSorted, UpdateSourceTrigger=PropertyChanged}"
+                    materialDesign:HintAssist.Hint="Средний балл не больше"></TextBox>
+                <TextBox
+                    Margin="5,5,15,5" 
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding AverageLessSorted, UpdateSourceTrigger=PropertyChanged}"
+                    materialDesign:HintAssist.Hint="Средний балл не меньше"></TextBox>
+        </StackPanel>
+        
+        <DataGrid 
+            Grid.Row="1" 
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            ItemsSource="{Binding TableDisplay}"
+            SelectedItem="{Binding SelectedRow}"
+            IsReadOnly="True" 
+            FontSize="14"
+            SelectionMode="Single">
+            
+        </DataGrid>
+        <StackPanel 
+            Grid.Row="2" 
+            Grid.Column="0">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox 
+                    FontSize="20" 
+                    ItemsSource="{Binding StatusesList}" 
+                    SelectedItem="{Binding SelectedStatus}"
+                    MinWidth="100"></ComboBox>
+                <Button
+                    FontSize="20" 
+                    Content="Изменить статус"
+                    MinHeight="40"
+                    Command="{Binding UpdateStatusCommand}"></Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBox 
+                IsReadOnly="True" 
+                FontSize="20" 
+                Text="{Binding ApplicantDocuments}"></TextBox>
+        </StackPanel>
     </Grid>
 </Page>

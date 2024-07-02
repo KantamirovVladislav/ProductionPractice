@@ -65,8 +65,19 @@ public class OperatorM
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            throw new ArgumentException($"{e.Message}");
+        }
+    }
+
+    public async Task UpdateStatusDocumentAsync(int? applicantId, string documentType)
+    {
+        try
+        {
+            await ExecuteCommandDataBase.UpdateStatusDocument(applicantId, documentType);
+        }
+        catch (Exception e)
+        {
+            throw new ArgumentException($"{e.Message}");
         }
     }
 
@@ -94,21 +105,18 @@ public class OperatorM
     {
         if (value.All(char.IsDigit))
         {
-            Console.WriteLine("Цифры");
             CurrentTable = _currentTable.Where(x => x.Snils.Contains(value)).ToList();
             return;
         }
 
         if (value.All(char.IsLetter))
         {
-            Console.WriteLine("Буквы");
             CurrentTable = _currentTable.Where(x => x.FirstName.Contains(value)).ToList();
             return;
         }
 
         if (value.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)))
         {
-            Console.WriteLine("Букавы и цифары");
             string[] values = value.Split(" ");
             CurrentTable = _currentTable.Where(x => x.FirstName.Contains(values[0]) && x.Snils.Contains(values[1]) ).ToList();
             return;
