@@ -12,12 +12,13 @@ using System.Windows;
 using System.Windows.Controls;
 using AdmissionCommitteeWPF.Pages;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Configuration = DataBaseClassLibrary.Methods.Configuration;
 
 namespace AdmissionCommitteeWPF.ViewModel;
 
 public class MainWindowVM: ViewModelBase
 {
-    private Page _currentPage;
+    private Page _currentPage = new Page();
 
     private NavigationItems _selectedPage;
 
@@ -59,6 +60,22 @@ public class MainWindowVM: ViewModelBase
                         CurrentPage = new CommissionView();
                         OnPropertyChanged("CurrentPage");
                     }
+                    else if (SelectedPage.Title == "Изменить поключение")
+                    {
+                        try
+                        {
+                            Configuration _conf = ConfigurationHelper.ReadFromJson();
+                            _conf.IsSaveConnection = false;
+                            ConfigurationHelper.WriteToJson(_conf);
+                            ConnectionWin connectionWin = new ConnectionWin();
+                            connectionWin.Show();
+                            Application.Current.Windows[0].Close();
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show(e.Message);
+                        }
+                    }
                 }
             }
             catch (Exception e)
@@ -69,26 +86,23 @@ public class MainWindowVM: ViewModelBase
     }
     public ObservableCollection<NavigationItems> _NavigationItems { get; }
     
-     // private Dictionary<string, ObservableCollection<NavigationItems>> _dictOfUserItem =
-     //    new Dictionary<string, ObservableCollection<NavigationItems>>
-     //    {
-     //        {
-     //            "administrator", new ObservableCollection<NavigationItems>
-     //            {
-     //                new NavigationItems { Title = "Таблицы", Notification = "", SelectedIcon =  PackIconKind.FileTableBoxMultiple, UnselectedIcon = PackIconKind.FileTableBoxMultipleOutline },
-     //                new NavigationItems {Title = "Данные документов", Notification = "", SelectedIcon = PackIconKind.AccountTieHat, UnselectedIcon = PackIconKind.AccountTieHatOutline},
-     //                new NavigationItems {Title = "Приёмная комиссия", Notification = "", SelectedIcon = PackIconKind.Gavel, UnselectedIcon = PackIconKind.Gavel}
-     //            }
-     //        }
-     //    };
      public MainWindowVM()
      {
-         // string jsonString = JsonSerializer.Serialize(_dictOfUserItem);
-         // File.WriteAllText("NavigationItem.json", jsonString);
-         
-         _NavigationItems = LoadNavigationMenu()["administrator"];
-         _currentPage = new OperatorView();
-         OnPropertyChanged("CurrentPage");
+         Configuration _conf = ConfigurationHelper.ReadFromJson();
+         try
+         {
+             _NavigationItems = LoadNavigationMenu()[_conf.ConnName];
+             OnPropertyChanged("CurrentPage");
+         }
+         catch (Exception e)
+         {
+             MessageBox.Show(e.Message);
+             _conf.IsSaveConnection = false;
+             ConfigurationHelper.WriteToJson(_conf);
+             ConnectionWin connectionWin = new ConnectionWin();
+             connectionWin.Show();
+             Application.Current.Windows[0].Close();
+         }
      }
      
      private Dictionary<string, ObservableCollection<NavigationItems>>? LoadNavigationMenu(){

@@ -7,8 +7,17 @@ namespace DataBaseClassLibrary.Context;
 
 public partial class MyDbContext : DbContext
 {
+    private string userName;
+    private string userPassword;
+    
     public MyDbContext()
     {
+    }
+
+    public MyDbContext(string userName, string userPassword)
+    {
+        this.userName = userName;
+        this.userPassword = userPassword;
     }
 
     public MyDbContext(DbContextOptions<MyDbContext> options)
@@ -76,7 +85,7 @@ public partial class MyDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=0201");
+        => optionsBuilder.UseNpgsql($"Host=localhost;Port=5432;Database=postgres;Username={userName};Password={userPassword}");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -105,7 +105,7 @@ public class TablesListModel
         }
         catch (NpgsqlException e)
         {
-            throw new ArgumentException("Error while saving data to the database. Error: " + e.Message);
+            throw new ArgumentException("Error while saving data to the database. Error: " + e.ToString());
         }
     }
     

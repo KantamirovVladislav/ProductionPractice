@@ -45,6 +45,6 @@ public class ConnectionVM: ViewModelBase
 
     public ConnectionVM()
     {
-        
+        GetConnect = new RelayCommand(Connect);
     }
 }

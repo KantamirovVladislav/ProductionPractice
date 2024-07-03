@@ -29,7 +29,8 @@
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     materialDesign:HintAssist.Hint="Поиск" 
                     MinWidth="200"
-                    Text="{Binding SortedValue,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    Text="{Binding SortedValue,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <Button Content="Обновить" Command="{Binding RefreshCommand}"></Button>
             </StackPanel>
             
         </WrapPanel>
@@ -80,11 +81,13 @@
                     materialDesign:HintAssist.Hint="Введите значение ключа" 
                     Text="{Binding Data}"></TextBox>
                 <Button 
+                    Margin="10"
                     Content="Сохранить" 
                     FontSize="18" 
                     MinHeight="35"
                     Command="{Binding SaveCommand}"></Button>
                 <Button 
+                    Margin="10"
                     Content="Завершить документ" 
                     FontSize="18" 
                     MinHeight="35"

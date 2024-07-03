@@ -13,7 +13,7 @@ public partial class Applicantsandeducation
 
     public string? LastName { get; set; }
 
-    public decimal? AverageScore { get; set; }
+    public double? AverageScore { get; set; }
 
     public int? Preferentialcount { get; set; }
 

@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using AdmissionCommitteeWPF.ConfigurationClasses;
+using DataBaseClassLibrary.Methods;
 
 namespace AdmissionCommitteeWPF.Models;
 
@@ -21,6 +21,10 @@ public class ConnectionM
         }
         
         WriteNewConfig(connName, connPassword);
+        
+        MainWindow mainWindow = new MainWindow();
+        mainWindow.Show();
+        Application.Current.Windows[0].Close();
     }
     
     private void WriteNewConfig(string? connName, string? connPassword)
@@ -35,7 +39,9 @@ public class ConnectionM
     {
         if (_configuraiton.CheckConnection() && _configuraiton.IsSaveConnection)
         {
-            MessageBox.Show("Конект прошёл");
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Application.Current.Windows[0].Close();
         }
     }
 }

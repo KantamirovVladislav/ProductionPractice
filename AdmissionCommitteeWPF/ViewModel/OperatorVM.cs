@@ -81,9 +81,24 @@ public class OperatorVM: ViewModelBase
     
     public ICommand SelectedImageCommand { get; set; }
 
+    public ICommand RefreshCommand { get; set; }
+
     public ICommand SaveCommand { get; set; }
 
     public ICommand FinallyDocumentCommand { get; set; }
+
+    private async Task Refresh()
+    {
+        try
+        {
+            await _operatorM.InitializeTableAsync();
+            OnPropertyChanged("TableDisplay");
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show(e.Message);
+        }
+    }
 
     private async Task UpdateStatus()
     {
@@ -146,6 +161,7 @@ public class OperatorVM: ViewModelBase
         SelectedImageCommand = new RelayCommand(SelectedImage);
         FinallyDocumentCommand = new RelayCommandAsync(UpdateStatus);
         SaveCommand = new RelayCommandAsync(async () => await SaveData());
+        RefreshCommand = new RelayCommandAsync(async () => await Refresh());
         Task.Run(async () =>
             {
                 await _operatorM.InitializeTableAsync();

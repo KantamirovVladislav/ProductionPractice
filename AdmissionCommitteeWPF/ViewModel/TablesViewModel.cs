@@ -18,6 +18,8 @@ public class TablesViewModel: ViewModelBase
     
     // Contains the all tables name
     private ObservableCollection<ComissionEntitys> _tables = new ObservableCollection<ComissionEntitys>();
+
+    private object _selectedRow;
     
     #endregion
     
@@ -46,10 +48,10 @@ public class TablesViewModel: ViewModelBase
 
     public object SelectedRow
     {
+        get => _selectedRow;
         set
         {
-            _tablesModel.DeletedValues.Add(value); 
-            OnPropertyChanged("TablesItems");
+            _selectedRow = value;
         }
     }
     
@@ -58,11 +60,18 @@ public class TablesViewModel: ViewModelBase
     #region Commands
 
     public ICommand SaveDataCommand { get; }
+    public ICommand DeleteDataCommand { get; }
     
     public ICommand RejectAllChanges { get; }
     
     public ICommand RejectChanges { get; }
     
+    private void DeleteData(object data)
+    {
+        if (SelectedRow != null)
+            _tablesModel.DeletedValues.Add(SelectedRow); 
+    }
+
     private async Task SaveDataAsync()
     {
         try
@@ -72,7 +81,7 @@ public class TablesViewModel: ViewModelBase
         }
         catch (Exception e)
         {
-            MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(e.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
         
     }
@@ -145,6 +154,7 @@ public class TablesViewModel: ViewModelBase
         SaveDataCommand = new RelayCommandAsync(async () => await SaveDataAsync());
         RejectAllChanges = new RelayCommandAsync(async () => await RejectAllChangesAsync());
         RejectChanges = new RelayCommandAsync(async () => await RejectChangesAsync());
+        DeleteDataCommand = new RelayCommand(DeleteData);
         LoadListTables();
     }
 

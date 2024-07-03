@@ -202,12 +202,15 @@ public class ExecuteCommandDataBase
     // Save range of entities with state in the entityFramework. All detached entities will be deleted
     private static void SaveDeleteWithState(ObservableCollection<object> entities)
     {
-        foreach (var item in entities)
+        if (entities.Count != 0)
         {
-            var entry = _db.Entry(item);
-            if (entry.State != EntityState.Detached)
+            foreach (var item in entities)
             {
-                entry.State = EntityState.Deleted;
+                var entry = _db.Entry(item);
+                if (entry.State != EntityState.Detached)
+                {
+                    entry.State = EntityState.Deleted;
+                }
             }
         }
     }
@@ -236,9 +239,10 @@ public class ExecuteCommandDataBase
     // Save all changes in the database. Parameters are the list of added and deleted entities
     public static async Task SaveDbChanges(ObservableCollection<object> addedEntities, ObservableCollection<object> deletedEntities)
     {
-        if (deletedEntities.Count() != 0)
+        Console.WriteLine(deletedEntities.Count.ToString(), addedEntities.Count.ToString());
+        if (deletedEntities.Count != 0)
             SaveDeleteWithState(deletedEntities);
-        if (addedEntities.Count() != 0)
+        if (addedEntities.Count != 0)
             SaveAddWithState(addedEntities);
         await _db.SaveChangesAsync();
     }
