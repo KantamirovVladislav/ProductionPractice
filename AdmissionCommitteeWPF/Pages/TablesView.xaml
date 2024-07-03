@@ -50,7 +50,7 @@
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Копироавть"></MenuItem>
-                    <MenuItem Header="Удалить"></MenuItem>
+                    <MenuItem Header="Удалить" Command="{Binding DeleteDataCommand}"></MenuItem>
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>

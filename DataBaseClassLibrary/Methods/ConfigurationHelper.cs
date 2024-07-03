@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text.Json;
 
-namespace AdmissionCommitteeWPF.ConfigurationClasses;
+namespace DataBaseClassLibrary.Methods;
 
 public class ConfigurationHelper
 {

@@ -1,4 +1,4 @@
-﻿namespace AdmissionCommitteeWPF.ConfigurationClasses;
+﻿namespace DataBaseClassLibrary.Methods;
 
 public class Configuration
 {

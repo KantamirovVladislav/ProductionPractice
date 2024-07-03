@@ -16,34 +16,64 @@ public class CommissionVM: ViewModelBase
 
     private string _applicantDocuments;
 
-    public string FIOSorted
+    private string _fio;
+
+    private string _specialization;
+
+    private double _more;
+
+    private double _less;
+
+    private bool _lessMoreChecked;
+
+    public bool LessMoreChecked
     {
+        get => _lessMoreChecked;
         set
         {
-            _сommissionM.FIOSortTable(value);
-            OnPropertyChanged("TableDisplay");
+            _lessMoreChecked = value; 
+            SortTable();
+        }
+    }
+
+    public string FIOSorted
+    {
+        get => _fio;
+        set
+        {
+            _fio = value;
+            SortTable();
         }
     }
 
     public string SpecializationSorted
     {
+        get => _specialization;
         set
         {
-            _сommissionM.SpecializationSortTable(value);
-            OnPropertyChanged("TableDisplay");
-        }
+            _specialization = value;
+            SortTable();
+        } 
     }
     
-    public string AverageMoreSorted
+    public double AverageMoreSorted
     {
-        get;
-        set;
+        get => _more;
+        set
+        {
+            _more = value; 
+            SortTable();
+        }
     }
 
-    public string AverageLessSorted
+    public double AverageLessSorted
     {
-        get;
-        set;
+        get => _less;
+        set
+        {
+            _less = value;
+            SortTable();
+        } 
     }
 
     public string ApplicantDocuments
@@ -85,6 +115,21 @@ public class CommissionVM: ViewModelBase
 
     public ICommand UpdateStatusCommand { get; set; }
 
+    public ICommand RefreshCommand { get; set; }
+
+    private async Task Refresh()
+    {
+        try
+        {
+            await _сommissionM.InitializeTableAsync();
+            OnPropertyChanged("TableDisplay");
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show(e.Message);;
+        }
+    }
+
     private async Task UpdateStatus()
     {
         try
@@ -99,14 +144,23 @@ public class CommissionVM: ViewModelBase
 
     private async Task GetApplicantDocuments()
     {
+        _applicantDocuments = "";
+        OnPropertyChanged("ApplicantDocuments");
         _applicantDocuments = await _сommissionM.GetApplicantDocuments(SelectedRow.Snils);
         OnPropertyChanged("ApplicantDocuments");
+    }
+
+    private void SortTable()
+    {
+        _сommissionM.SortTable(FIOSorted, SpecializationSorted, AverageMoreSorted,AverageLessSorted, LessMoreChecked);
+        OnPropertyChanged("TableDisplay");
     }
 
     public CommissionVM()
     {
         _сommissionM = new CommissionM();
         UpdateStatusCommand = new RelayCommandAsync(UpdateStatus);
+        RefreshCommand = new RelayCommandAsync(Refresh);
         Task.Run(async () =>
             {
                 await _сommissionM.InitializeTableAsync();

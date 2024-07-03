@@ -51,19 +51,29 @@
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     Text="{Binding AverageLessSorted, UpdateSourceTrigger=PropertyChanged}"
                     materialDesign:HintAssist.Hint="Средний балл не меньше"></TextBox>
+                <ToggleButton
+                    IsChecked="{Binding LessMoreChecked, UpdateSourceTrigger=PropertyChanged}"
+                    materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=ChevronTripleDown}"
+                    Content="{materialDesign:PackIcon Kind=ChevronTripleUp}"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="MaterialDesignActionLightToggleButton" />
+                <Button 
+                    Margin="10,0,0,0"
+                    Content="Обновить" 
+                    Command="{Binding RefreshCommand}"></Button>
         </StackPanel>
-        
-        <DataGrid 
-            Grid.Row="1" 
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            ItemsSource="{Binding TableDisplay}"
-            SelectedItem="{Binding SelectedRow}"
-            IsReadOnly="True" 
-            FontSize="14"
-            SelectionMode="Single">
-            
-        </DataGrid>
+        <StackPanel Grid.Row="1" 
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2">
+            <DataGrid 
+                ItemsSource="{Binding TableDisplay}"
+                SelectedItem="{Binding SelectedRow}"
+                IsReadOnly="True" 
+                FontSize="14"
+                SelectionMode="Single">
+                
+            </DataGrid>
+        </StackPanel>
         <StackPanel 
             Grid.Row="2" 
             Grid.Column="0">
@@ -72,7 +82,7 @@
                     FontSize="20" 
                     ItemsSource="{Binding StatusesList}" 
                     SelectedItem="{Binding SelectedStatus}"
-                    MinWidth="100"></ComboBox>
+                    MinWidth="150"></ComboBox>
                 <Button
                     FontSize="20" 
                     Content="Изменить статус"

@@ -48,14 +48,24 @@ public class CommissionM
         return builder.ToString();
     }
 
-    public void FIOSortTable(string data)
+    public void SortTable(string? fio, string? specialization, double more, double less, bool lessMore)
     {
-        _currentTableSorted = _currentTable.Where(x => $"{x.FirstName} {x.Name} {x.LastName}".Contains(data)).ToList();
-    }
-    
-    public void SpecializationSortTable(string data)
-    {
-        _currentTableSorted = _currentTableSorted.Where(x => x.Snils.Contains(data)).ToList();
+        var sortedTable = _currentTable;
+        if (!string.IsNullOrWhiteSpace(fio))
+            sortedTable = _currentTable.Where(x => $"{x.FirstName} {x.Name} {x.LastName}".Contains(fio)).ToList();
+        if (!string.IsNullOrWhiteSpace(specialization))
+            sortedTable = sortedTable.Where(x => x.SpecializationId.Contains(specialization)).ToList();
+        if (!double.IsNaN(more) && more > 0)
+            sortedTable = sortedTable.Where(x => (double)x.AverageScore <= more).ToList();
+        if (!double.IsNaN(less) && more > 0)
+            sortedTable = sortedTable.Where(x => (double)x.AverageScore >= less).ToList();
+        if (lessMore)
+        {
+            sortedTable = sortedTable.OrderBy(x => x.AverageScore).ToList();
+        }
+        else
+            sortedTable = sortedTable.OrderByDescending(x => x.AverageScore).ToList();
+        _currentTableSorted = sortedTable;
     }
 
     public async Task InitializeStatuses()
