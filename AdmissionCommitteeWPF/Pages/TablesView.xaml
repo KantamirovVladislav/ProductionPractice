@@ -49,7 +49,7 @@
         <DataGrid Grid.Row="1" Name="DataGrid"  ItemsSource="{Binding TablesItems, Mode=TwoWay}" SelectedItem="{Binding SelectedRow}" >
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Копироавть"></MenuItem>
+                    <MenuItem Header="Копировать"></MenuItem>
                     <MenuItem Header="Удалить" Command="{Binding DeleteDataCommand}"></MenuItem>
                 </ContextMenu>
             </DataGrid.ContextMenu>
